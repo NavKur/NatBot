@@ -31,7 +31,7 @@ export function ToolCard({ event }: { event: ToolEvent }) {
     case 'get_behavioural_flags':
       return (
         <section className="tool-card">
-          <h4>Flagged for {r.tendency}</h4>
+          <h4>Spending NatBot flagged</h4>
           <p className="muted small">
             {r.flag_count} flagged · {money(r.total)}
           </p>

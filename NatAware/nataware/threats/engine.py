@@ -11,9 +11,11 @@ DEMO: deterministic scoring with the same output contract:
 from __future__ import annotations
 
 import json
+from datetime import date
 from typing import Any
 
 from nataware.coaching.engine import load_transition_matrix
+from nataware.insights.common import friendly
 from nataware.profile import Capacity, Profile
 
 # How hard a shock lands, by financial resilience.
@@ -55,15 +57,22 @@ def calculate_threats(profile: Profile, macro: dict[str, Any], budget: dict[str,
                 "priority": priority,
                 "affected_categories": item.get("affects", []),
                 "recommended_budget_shift": (
-                    f"Set aside £{shift:.0f}/month from {source_category} for {item.get('buffer', 'bills')}"
-                    f" until {item.get('starts', 'it hits')}."
+                    f"Move £{shift:.0f} a month from {friendly(source_category)} into {item.get('buffer', 'bills')}"
+                    f" before {_nice_date(item.get('starts'))}."
                     if item.get("starts", "") > macro.get("date", "")
-                    else f"Set aside £{shift:.0f} from {source_category} for {item.get('buffer', 'bills')} this month."
+                    else f"Move £{shift:.0f} from {friendly(source_category)} into {item.get('buffer', 'bills')} this month."
                 ),
             }
         )
     order = {"high": 0, "medium": 1, "low": 2}
     return sorted(threats, key=lambda t: (order[t["priority"]], -t["estimated_dollar_burden"]))
+
+
+def _nice_date(iso: str | None) -> str:
+    if not iso:
+        return "it hits"
+    d = date.fromisoformat(iso)
+    return f"{d.day} {d:%B}"
 
 
 def profile_tendency_amplifiers(profile: Profile) -> set[str]:

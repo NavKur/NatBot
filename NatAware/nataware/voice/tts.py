@@ -20,6 +20,8 @@ log = logging.getLogger(__name__)
 PCM_SAMPLE_RATE = 22_050
 _OUTPUT_FORMAT = f"pcm_{PCM_SAMPLE_RATE}"
 _TTS_URL = "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/stream"
+# Slightly lower stability and a little style make delivery less flat and more conversational.
+VOICE_SETTINGS = {"stability": 0.45, "similarity_boost": 0.8, "style": 0.25, "use_speaker_boost": True}
 
 
 class Speaker:
@@ -83,7 +85,7 @@ class Speaker:
             url,
             params={"output_format": _OUTPUT_FORMAT},
             headers={"xi-api-key": settings.elevenlabs_api_key},
-            json={"text": text, "model_id": settings.elevenlabs_model},
+            json={"text": text, "model_id": settings.elevenlabs_model, "voice_settings": VOICE_SETTINGS},
         ) as resp:
             if resp.status_code >= 400:
                 resp.read()

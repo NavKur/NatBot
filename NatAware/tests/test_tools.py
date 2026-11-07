@@ -41,7 +41,7 @@ def test_flags_follow_comfort_buyer_profile():
 def test_summary_budget_threats_plan():
     summary = execute_tool("get_spending_summary", {"group_by": "month"})
     months = [r["group"] for r in summary["rows"]]
-    assert months[0] == "2025-09" and months[-1] == "2026-11" and len(months) == 15
+    assert months[0] == "2024-11" and months[-1] == "2026-11" and len(months) == 25
 
     budget = execute_tool("get_budget_status", {})
     assert budget["month"] == "2026-10" and budget["income"] > 0
@@ -83,3 +83,28 @@ def test_set_aside_and_update_goal():
     assert execute_tool("set_aside_for_event", {"event_id": "christmas", "weekly": 40})["total_weekly"] == 40
     res = execute_tool("update_goal", {"name": "Driving lessons", "target": 1200, "kind": "car"})
     assert any(g["name"] == "Driving lessons" for g in res["goals"])
+
+
+def test_goals_use_pots_and_history():
+    plans = execute_tool("get_goals_and_strategies", {})
+    house = next(g for g in plans["goals"] if g["kind"] == "house")
+    assert house["saved"] == 2100 and house["usual_monthly"] == 90
+    assert len(house["history"]) == 12 and house["history"][-1]["balance"] == 2100
+
+
+def test_surprise_costs_and_savings_insights():
+    kinds = {i["kind"]: i for i in execute_tool("get_insights", {})["insights"]}
+    assert kinds["unexpected_costs"]["facts"]["count"] >= 5
+    assert kinds["savings"]["facts"]["saved_last_12_months"] > 0
+
+
+def test_seasonal_outlook_only_shows_the_next_few_months():
+    ids = {e["id"] for e in execute_tool("get_seasonal_outlook", {})["events"]}
+    assert {"black-friday", "christmas", "january-sales"} <= ids
+    assert "summer-holidays" not in ids  # July is too far ahead on 7 Nov
+
+
+def test_profile_labels_are_never_spoken():
+    from nataware.conversation.prompts import ONBOARDING_SYSTEM_PROMPT
+
+    assert "never say them" in ONBOARDING_SYSTEM_PROMPT

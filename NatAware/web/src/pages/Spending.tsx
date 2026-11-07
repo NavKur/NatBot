@@ -91,7 +91,7 @@ export function Spending({ today, query, version }: { today: string; query: stri
         </section>
       )}
 
-      <div className="toolbar" role="search">
+      <div className="toolbar" role="search" aria-label="Filter payments">
         <label className="sr-only" htmlFor="month">
           Month
         </label>

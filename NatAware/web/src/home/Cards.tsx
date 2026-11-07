@@ -1,7 +1,6 @@
 import { ArrowRight, Repeat, Target } from 'lucide-react'
-import { CAPACITY_TEXT, TENDENCY_TEXT, shortName } from '../archetypes'
-import { money, shortDate } from '../format'
-import type { Budget, Dashboard, Plan, Profile, Recurring, Threat } from '../types'
+import { friendly, listJoin, money, shortDate } from '../format'
+import type { Budget, Dashboard, Plan, Recurring, Threat } from '../types'
 
 export function StatsStrip({ d }: { d: Dashboard }) {
   const mtd = d.stats.month_to_date
@@ -50,7 +49,7 @@ export function NearYou({ threats, city }: { threats: Threat[]; city: string }) 
       </div>
       <ul className="list" style={{ gap: '0.25rem' }}>
         {threats.slice(0, 5).map((t) => (
-          <li key={t.threat_id} style={{ display: 'grid', gap: '0.35rem', alignItems: 'stretch' }}>
+          <li key={t.threat_id} style={{ display: 'grid', gap: '0.35rem', justifyContent: 'stretch' }}>
             <div className="spread">
               <strong style={{ fontWeight: 650 }}>{t.threat_name}</strong>
               <span className={`badge badge-${t.priority}`}>{t.priority} priority</span>
@@ -117,7 +116,7 @@ export function PlanCard({ plan, onAsk }: { plan: Plan; onAsk: (q: string) => vo
       </div>
       <p className="small">
         This week: <strong>{money(plan.spent_this_week)}</strong> of your {money(plan.weekly_limit)} limit on{' '}
-        {plan.watch_categories.join(', ').toLowerCase()}
+        {listJoin(plan.watch_categories.map(friendly))}
       </p>
       <div
         className={`progress ${plan.over_limit ? 'over' : ''}`}
@@ -149,7 +148,7 @@ export function PlanCard({ plan, onAsk }: { plan: Plan; onAsk: (q: string) => vo
   )
 }
 
-export function ProfileCard({ profile, budget }: { profile: Profile; budget: Budget }) {
+export function HealthySplitCard({ budget }: { budget: Budget }) {
   const rows = (['needs', 'wants', 'savings'] as const).map((k) => ({
     k,
     actual: budget.actual[k].percent_of_income,
@@ -157,22 +156,22 @@ export function ProfileCard({ profile, budget }: { profile: Profile; budget: Bud
   }))
   const monthLabel = new Date(budget.month + '-15').toLocaleDateString('en-GB', { month: 'long' })
   return (
-    <section className="card" aria-labelledby="profile-title">
-      <p className="eyebrow">Your money profile</p>
-      <h2 id="profile-title" className="card-title">
-        {shortName(profile.capacity)} · {shortName(profile.tendency)}
-      </h2>
-      <p className="small" style={{ margin: '0.5rem 0' }}>
-        {CAPACITY_TEXT[profile.capacity]} {TENDENCY_TEXT[profile.tendency]}
-      </p>
-      <h3 style={{ fontSize: '0.95rem', margin: '1rem 0 0.25rem' }}>{monthLabel} vs your healthy split</h3>
+    <section className="card" aria-labelledby="split-title">
+      <div className="card-head">
+        <div>
+          <h2 id="split-title" className="card-title">
+            Your healthy split
+          </h2>
+          <p className="card-sub">{monthLabel} compared with the balance you're working towards</p>
+        </div>
+      </div>
       <div className="table-wrap">
         <table>
           <caption className="sr-only">Share of income by bucket in {monthLabel}, against your target</caption>
           <thead>
             <tr>
-              <th scope="col">Bucket</th>
-              <th scope="col" className="num">Actual</th>
+              <th scope="col">Of your income</th>
+              <th scope="col" className="num">{monthLabel}</th>
               <th scope="col" className="num">Target</th>
             </tr>
           </thead>

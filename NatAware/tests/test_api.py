@@ -69,3 +69,52 @@ def test_set_asides_feed_the_winter_buffer():
         assert c.post("/setasides", json={"event_id": "nope", "weekly": 5}).status_code == 404
         c.delete("/setasides/heating")
         assert c.get("/dashboard").json()["stats"]["winter_buffer"]["weekly"] == 0
+
+
+def _events(text):
+    import json as _json
+
+    out = []
+    for block in text.strip().split("\n\n"):
+        lines = dict(line.split(": ", 1) for line in block.splitlines())
+        out.append((lines["event"], _json.loads(lines["data"])))
+    return out
+
+
+def test_chat_stream_emits_sentences_tools_and_done(monkeypatch):
+    """The SSE contract the web app depends on, with a fake coach (no network)."""
+    from nataware.api import main as api_main
+    from nataware.conversation import sessions
+
+    class FakeCoach:
+        def __init__(self):
+            self.message_history = []
+
+        def reply(self, text, on_sentence, on_tool):
+            on_sentence("Let me look.")
+            on_tool("search_transactions", {"query": "pub"}, {"match_count": 3})
+            on_sentence("Three pub visits.")
+            return "Let me look. Three pub visits."
+
+    from dataclasses import replace
+
+    monkeypatch.setattr(api_main, "settings", replace(api_main.settings, anthropic_api_key="test-key"))
+    monkeypatch.setattr(sessions, "CoachSession", FakeCoach)
+    with client() as c:
+        r = c.post("/chat/stream", json={"message": "pubs?", "mode": "coach"})
+    assert r.status_code == 200 and r.headers["content-type"].startswith("text/event-stream")
+    events = _events(r.text)
+    assert [e for e, _ in events] == ["session", "sentence", "tool", "sentence", "done"]
+    assert events[2][1]["result"]["match_count"] == 3
+    assert events[-1][1]["reply"] == "Let me look. Three pub visits."
+
+
+def test_voice_endpoints_report_missing_keys(monkeypatch):
+    from nataware.api import main as api_main
+
+    from dataclasses import replace
+
+    monkeypatch.setattr(api_main, "settings", replace(api_main.settings, openai_api_key="", elevenlabs_api_key=""))
+    with client() as c:
+        assert c.post("/voice/speak", json={"text": "hi"}).status_code == 503
+        assert c.post("/voice/transcribe", files={"audio": ("a.webm", b"x", "audio/webm")}).status_code == 503

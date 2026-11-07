@@ -34,9 +34,10 @@ class Settings:
     openai_api_key: str = field(default_factory=lambda: _env("OPENAI_API_KEY", ""))
     whisper_model: str = field(default_factory=lambda: _env("WHISPER_MODEL", "whisper-1"))
     elevenlabs_api_key: str = field(default_factory=lambda: _env("ELEVENLABS_API_KEY", ""))
-    # Default voice is "Rachel" from the ElevenLabs premade library; swap for any voice ID.
-    elevenlabs_voice_id: str = field(default_factory=lambda: _env("ELEVENLABS_VOICE_ID", "21m00Tcm4TlvDq8ikWAM"))
-    elevenlabs_model: str = field(default_factory=lambda: _env("ELEVENLABS_MODEL", "eleven_turbo_v2_5"))
+    # Default voice is "Lily" (British, warm, female) from the ElevenLabs premade library.
+    elevenlabs_voice_id: str = field(default_factory=lambda: _env("ELEVENLABS_VOICE_ID", "pFZP5JQG7iQjIQuC4Bku"))
+    # multilingual_v2 sounds more natural; eleven_turbo_v2_5 starts speaking a little sooner.
+    elevenlabs_model: str = field(default_factory=lambda: _env("ELEVENLABS_MODEL", "eleven_multilingual_v2"))
 
     # --- Voice activity detection ---
     vad_silence_seconds: float = field(default_factory=lambda: float(_env("VAD_SILENCE_SECONDS", "1.5")))

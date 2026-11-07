@@ -29,6 +29,20 @@
         "Transport"
       ],
       "buffer": "travel"
+    },
+    {
+      "id": "wx-icy-trams",
+      "kind": "transport",
+      "severity": "low",
+      "headline": "Icy mornings expected through January",
+      "detail": "Frost and ice usually slow Metrolink services on cold mornings, pushing some people to taxis.",
+      "starts": "2027-01-04",
+      "base_monthly_impact": 15.0,
+      "months": 2,
+      "affects": [
+        "Transport"
+      ],
+      "buffer": "travel"
     }
   ],
   "economic_news": [
@@ -77,6 +91,35 @@
       ],
       "buffer": "groceries",
       "price_change_pct": 3.8
+    },
+    {
+      "id": "econ-rent-rise",
+      "kind": "prices",
+      "severity": "medium",
+      "headline": "Manchester rents up 7% on last year",
+      "detail": "Average city-centre rents rose about 7% in the past year; renewals from spring are likely to follow.",
+      "starts": "2027-03-01",
+      "base_monthly_impact": 60.0,
+      "months": 12,
+      "affects": [
+        "Rent"
+      ],
+      "buffer": "rent",
+      "price_change_pct": 7.0
+    },
+    {
+      "id": "econ-water-apr",
+      "kind": "prices",
+      "severity": "low",
+      "headline": "Water bills set to rise from April",
+      "detail": "North West water bills are expected to rise by around 5% from April.",
+      "starts": "2027-04-01",
+      "base_monthly_impact": 2.0,
+      "months": 12,
+      "affects": [
+        "Utilities"
+      ],
+      "buffer": "water bills"
     }
   ],
   "local_notes": [
@@ -106,6 +149,44 @@
       "detail": "Pharmacy spending on cold and flu remedies usually rises over winter.",
       "affects": [
         "Health & Pharmacy"
+      ]
+    },
+    {
+      "id": "area-black-friday",
+      "kind": "local",
+      "headline": "Black Friday deals land 27 November",
+      "detail": "Many 'deals' match prices seen earlier in the year, so a 24-hour pause before buying avoids most regret.",
+      "affects": [
+        "Shopping - Online"
+      ]
+    },
+    {
+      "id": "area-jan-sales",
+      "kind": "local",
+      "headline": "January sales start on Boxing Day",
+      "detail": "Arndale and online sales run to mid-January; a short list made before Christmas keeps it to what you need.",
+      "affects": [
+        "Shopping - Online",
+        "Shopping - Clothing"
+      ]
+    },
+    {
+      "id": "area-warm-spaces",
+      "kind": "support",
+      "headline": "Free warm spaces open across Manchester",
+      "detail": "Libraries and community centres offer free warm places to spend the day, which can cut heating costs.",
+      "affects": [
+        "Utilities"
+      ]
+    },
+    {
+      "id": "area-bill-help",
+      "kind": "support",
+      "headline": "Help with bills is available",
+      "detail": "The council and local charities offer one-off help with energy and food costs for households that are struggling.",
+      "affects": [
+        "Utilities",
+        "Groceries"
       ]
     }
   ]

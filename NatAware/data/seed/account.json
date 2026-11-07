@@ -5,8 +5,25 @@
   "account_type": "Personal account",
   "city": "Manchester",
   "currency": "GBP",
-  "balance": 1350.22,
+  "balance": 1350.6,
   "balance_as_of": "2026-11-06",
-  "savings_balance": 2550.0,
-  "payday_day": 28
+  "payday_day": 28,
+  "pots": [
+    {
+      "id": "house",
+      "name": "House deposit",
+      "kind": "house",
+      "merchant": "Monzo Pot - House deposit",
+      "opening_balance": 650.0,
+      "opening_date": "2024-11-01"
+    },
+    {
+      "id": "emergency",
+      "name": "Emergency fund",
+      "kind": "emergency",
+      "merchant": "Monzo Pot - Emergency fund",
+      "opening_balance": 611.4,
+      "opening_date": "2024-11-01"
+    }
+  ]
 }

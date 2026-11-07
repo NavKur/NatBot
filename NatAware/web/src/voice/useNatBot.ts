@@ -3,6 +3,7 @@ import { api, streamChat } from '../api'
 import { uid } from '../format'
 import { usePrefs } from '../prefs'
 import type { Capabilities, ChatMessage, Profile, ToolEvent } from '../types'
+import { audioContext } from './audio'
 import { BrowserRecognition, browserSttSupported } from './browserStt'
 import { Recording, micSupported } from './recorder'
 import { Speaker } from './speaker'
@@ -14,13 +15,15 @@ interface Options {
   capabilities: Capabilities
   onTool?: (event: ToolEvent) => void
   onComplete?: (profile: Profile) => void
+  /** Called just before the mic opens (e.g. to pause the wake-word listener). */
+  onMicStart?: () => void
 }
 
 /**
  * One conversation with NatBot: text or voice in, streamed text (and speech) out.
  * Voice loop: listen -> transcribe -> stream reply (speaking sentence by sentence) -> listen again.
  */
-export function useNatBot({ mode, capabilities, onTool, onComplete }: Options) {
+export function useNatBot({ mode, capabilities, onTool, onComplete, onMicStart }: Options) {
   const { prefs } = usePrefs()
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [status, setStatus] = useState<BotStatus>('idle')
@@ -38,8 +41,8 @@ export function useNatBot({ mode, capabilities, onTool, onComplete }: Options) {
   prefsRef.current = prefs
   const voiceModeRef = useRef(voiceMode)
   voiceModeRef.current = voiceMode
-  const handlers = useRef({ onTool, onComplete })
-  handlers.current = { onTool, onComplete }
+  const handlers = useRef({ onTool, onComplete, onMicStart })
+  handlers.current = { onTool, onComplete, onMicStart }
 
   const canListen = capabilities.speech_to_text ? micSupported() : browserSttSupported()
 
@@ -133,9 +136,13 @@ export function useNatBot({ mode, capabilities, onTool, onComplete }: Options) {
     setError(null)
     setInterim('')
     setStatus('listening')
+    handlers.current.onMicStart?.()
     try {
       let text: string | null = null
-      if (capabilities.speech_to_text && micSupported()) {
+      // Whisper needs our silence detector, which needs audio unlocked by a click. If NatBot was
+      // woken by voice before any click, use the browser's recogniser for this turn instead.
+      const audioReady = audioContext().state === 'running'
+      if (capabilities.speech_to_text && micSupported() && (audioReady || !browserSttSupported())) {
         const rec = new Recording({ onLevel: setLevel, onSpeechStart: () => setStatus('hearing') })
         recording.current = rec
         const blob = await rec.result

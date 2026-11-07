@@ -100,11 +100,25 @@ export class Speaker {
     return new Promise((resolve) => {
       const u = new SpeechSynthesisUtterance(text)
       u.lang = 'en-GB'
-      const voice = speechSynthesis.getVoices().find((v) => v.lang === 'en-GB')
+      const voice = pickBrowserVoice()
       if (voice) u.voice = voice
       u.onend = () => resolve()
       u.onerror = () => resolve()
       speechSynthesis.speak(u)
     })
   }
+}
+
+/** Prefer a British English female system voice, to match NatBot's ElevenLabs voice (Lily). */
+const FEMALE_GB = ['Google UK English Female', 'Serena', 'Kate', 'Martha', 'Stephanie', 'Libby', 'Sonia', 'Hazel', 'Susan']
+
+function pickBrowserVoice(): SpeechSynthesisVoice | undefined {
+  const voices = speechSynthesis.getVoices()
+  const gb = voices.filter((v) => v.lang.replace('_', '-') === 'en-GB')
+  return (
+    FEMALE_GB.map((name) => gb.find((v) => v.name.includes(name))).find(Boolean) ??
+    gb.find((v) => /female/i.test(v.name)) ??
+    gb[0] ??
+    voices.find((v) => v.lang.startsWith('en'))
+  )
 }

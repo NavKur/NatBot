@@ -1,5 +1,5 @@
 {
-  "description": "Seasonal money pressures NatBot watches for. Expected extra cost is computed from the user's own spending in the same window last year versus a normal month now, plus announced price changes in the Daily_Macro_Summary. Windows are MM-DD and may wrap the year end.",
+  "description": "Seasonal money pressures NatBot watches for. Expected extra cost is computed from the user's own spending in the same window last year versus a normal month now, plus announced price changes in the Daily_Macro_Summary. Windows are MM-DD and may wrap the year end. Only events starting within the next four months (or already under way) are shown.",
   "events": [
     {
       "id": "cold-flu",
@@ -8,8 +8,12 @@
       "start": "11-01",
       "end": "02-28",
       "window_label": "Now to February",
-      "categories": ["Health & Pharmacy"],
-      "area_ids": ["area-gp-visits"],
+      "categories": [
+        "Health & Pharmacy"
+      ],
+      "area_ids": [
+        "area-gp-visits"
+      ],
       "what": "remedies, prescriptions and pharmacy runs"
     },
     {
@@ -19,8 +23,20 @@
       "start": "12-01",
       "end": "12-24",
       "window_label": "Peaks 1 to 24 December",
-      "categories": ["Shopping - Online", "Shopping - Clothing", "Eating Out", "Alcohol & Nightlife", "Travel", "Groceries", "Entertainment"],
-      "area_ids": ["area-xmas-markets", "area-early-offers", "econ-food-inflation"],
+      "categories": [
+        "Shopping - Online",
+        "Shopping - Clothing",
+        "Eating Out",
+        "Alcohol & Nightlife",
+        "Travel",
+        "Groceries",
+        "Entertainment"
+      ],
+      "area_ids": [
+        "area-xmas-markets",
+        "area-early-offers",
+        "econ-food-inflation"
+      ],
       "what": "gifts, nights out, food and travel"
     },
     {
@@ -30,8 +46,15 @@
       "start": "12-01",
       "end": "02-28",
       "window_label": "December to February",
-      "categories": ["Utilities"],
-      "area_ids": ["wx-cold-snap-nov", "econ-energy-cap-jan"],
+      "categories": [
+        "Utilities"
+      ],
+      "area_ids": [
+        "wx-cold-snap-nov",
+        "econ-energy-cap-jan",
+        "area-warm-spaces",
+        "area-bill-help"
+      ],
       "what": "gas and electricity"
     },
     {
@@ -41,9 +64,76 @@
       "start": "11-12",
       "end": "02-28",
       "window_label": "Storm season, November to February",
-      "categories": ["Transport"],
-      "area_ids": ["wx-storm-wind"],
+      "categories": [
+        "Transport"
+      ],
+      "area_ids": [
+        "wx-storm-wind",
+        "wx-icy-trams"
+      ],
       "what": "taxis when trams and trains are disrupted"
+    },
+    {
+      "id": "black-friday",
+      "title": "Black Friday",
+      "icon": "tag",
+      "start": "11-25",
+      "end": "12-01",
+      "window_label": "25 November to 1 December",
+      "categories": [
+        "Shopping - Online",
+        "Shopping - Clothing"
+      ],
+      "area_ids": [
+        "area-black-friday"
+      ],
+      "what": "online and clothes shopping"
+    },
+    {
+      "id": "january-sales",
+      "title": "January sales",
+      "icon": "shopping-bag",
+      "start": "12-26",
+      "end": "01-15",
+      "window_label": "Boxing Day to mid-January",
+      "categories": [
+        "Shopping - Online",
+        "Shopping - Clothing"
+      ],
+      "area_ids": [
+        "area-jan-sales"
+      ],
+      "what": "sales shopping"
+    },
+    {
+      "id": "summer-holidays",
+      "title": "Summer holidays",
+      "icon": "sun",
+      "start": "07-01",
+      "end": "08-31",
+      "window_label": "July and August",
+      "categories": [
+        "Travel",
+        "Eating Out",
+        "Entertainment",
+        "Alcohol & Nightlife"
+      ],
+      "area_ids": [],
+      "what": "trips, days out and meals"
+    },
+    {
+      "id": "valentines",
+      "title": "Valentine's Day",
+      "icon": "heart",
+      "start": "02-10",
+      "end": "02-14",
+      "window_label": "Week of 14 February",
+      "categories": [
+        "Eating Out",
+        "Shopping - Online"
+      ],
+      "area_ids": [],
+      "what": "dinners and gifts"
     }
   ]
 }

@@ -14,3 +14,13 @@ def store(tmp_path):
     bootstrap()
     yield s
     set_store(None)
+
+
+@pytest.fixture(autouse=True)
+def no_live_claude(monkeypatch):
+    """Never call the real Claude API from tests, even if .env has a key."""
+    from dataclasses import replace
+
+    from nataware.insights import narrate
+
+    monkeypatch.setattr(narrate, "settings", replace(narrate.settings, anthropic_api_key=""))

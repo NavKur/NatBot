@@ -13,6 +13,7 @@ from nataware.config import settings
 from nataware.insights.common import days_in_month, gbp, last_full_months, spend_between
 
 MIN_EXTRA = 10.0
+WINDOW_DAYS = 120  # show what's coming in roughly the next four months
 
 
 @lru_cache(maxsize=1)
@@ -65,6 +66,8 @@ def seasonal_awareness(
     cards = []
     for ev in load_events():
         start, end = _next_window(today, ev)
+        if (start - today).days > WINDOW_DAYS:
+            continue  # too far ahead to act on yet
         days = (end - start).days + 1
         ly_start, ly_end = _minus_year(start), _minus_year(end)
         full_coverage = ly_start.isoformat() >= first

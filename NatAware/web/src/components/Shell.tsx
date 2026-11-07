@@ -1,4 +1,4 @@
-import { Accessibility, Bell, ChartColumn, FileText, House, Repeat, Search, X, Zap } from 'lucide-react'
+import { Accessibility, Bell, ChartColumn, FileText, House, ListChecks, Mic, Repeat, Search, X } from 'lucide-react'
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { api } from '../api'
 import { usePrefs } from '../prefs'
@@ -6,20 +6,26 @@ import type { AppState, Nudge } from '../types'
 import type { useNatBot } from '../voice/useNatBot'
 import { Conversation } from './Conversation'
 import { Dialog } from './Dialog'
+import { wakeWordSupported, type WakeState } from '../voice/wakeWord'
+import { unlockAudio } from '../voice/audio'
 import { Logo, Orb, Switch } from './bits'
 
-export type Route = 'home' | 'spending' | 'recurring' | 'statements'
+export type Route = 'home' | 'spending' | 'plan' | 'recurring' | 'statements'
 
 export function Header({
   state,
   nudges,
   onSearch,
   onOpenSettings,
+  wakeState,
+  onWakeOff,
 }: {
   state: AppState
   nudges: Nudge[]
   onSearch: (q: string) => void
   onOpenSettings: () => void
+  wakeState: WakeState
+  onWakeOff: () => void
 }) {
   const [q, setQ] = useState('')
   const [open, setOpen] = useState(false)
@@ -59,7 +65,7 @@ export function Header({
     <header className="topbar">
       <div className="topbar-inner">
         <Logo />
-        <form className="search" role="search" onSubmit={submit}>
+        <form className="search" role="search" aria-label="Search all payments" onSubmit={submit}>
           <Search size={18} aria-hidden="true" />
           <label htmlFor="global-search" className="sr-only">
             Search payments and payees
@@ -74,6 +80,19 @@ export function Header({
           />
         </form>
         <div className="topbar-actions">
+          {wakeState !== 'off' && wakeState !== 'unsupported' && (
+            <button
+              type="button"
+              className={`wake-pill ${wakeState}`}
+              onClick={onWakeOff}
+              aria-label={`${WAKE_TEXT[wakeState]}. Turn off Hey NatBot`}
+              title="Turn off Hey NatBot"
+            >
+              <span className="live" aria-hidden="true" />
+              <Mic size={14} aria-hidden="true" />
+              <span className="label">{WAKE_TEXT[wakeState]}</span>
+            </button>
+          )}
           <button type="button" className="icon-btn" onClick={onOpenSettings} aria-label="Accessibility and voice settings">
             <Accessibility size={22} aria-hidden="true" />
           </button>
@@ -122,9 +141,18 @@ export function Header({
   )
 }
 
+const WAKE_TEXT: Record<WakeState, string> = {
+  listening: 'Say "Hey NatBot"',
+  paused: 'Hey NatBot paused',
+  error: 'Mic blocked for Hey NatBot',
+  off: '',
+  unsupported: '',
+}
+
 const NAV: { route: Route; label: string; Icon: typeof House }[] = [
   { route: 'home', label: 'Home', Icon: House },
   { route: 'spending', label: 'Spending', Icon: ChartColumn },
+  { route: 'plan', label: 'Plan', Icon: ListChecks },
   { route: 'recurring', label: 'Recurring', Icon: Repeat },
   { route: 'statements', label: 'Statements', Icon: FileText },
 ]
@@ -139,9 +167,8 @@ export function BottomNav({ route, onNatBot }: { route: Route; onNatBot: () => v
             {label}
           </a>
         ))}
-        <button type="button" className="btn btn-primary natbot-btn" onClick={onNatBot} aria-label="Talk to NatBot">
-          <Zap size={20} aria-hidden="true" />
-          <span>NatBot</span>
+        <button type="button" className="nav-item nav-natbot" onClick={onNatBot} aria-label="Talk to NatBot">
+          NatBot
         </button>
       </div>
     </nav>
@@ -245,6 +272,21 @@ export function SettingsPanel({ open, onClose }: { open: boolean; onClose: () =>
         <h3>Voice</h3>
         <Switch id="pref-voice" checked={prefs.voiceReplies} onChange={(v) => setPref('voiceReplies', v)} label="NatBot speaks replies" description="Replies are always shown as text too." />
         <Switch id="pref-listen" checked={prefs.autoListen} onChange={(v) => setPref('autoListen', v)} label="Hands-free conversation" description="After NatBot speaks, it listens for your reply automatically." />
+        {wakeWordSupported() ? (
+          <Switch
+            id="pref-wake"
+            checked={prefs.wakeWord}
+            onChange={(v) => {
+              if (v) unlockAudio(true)
+              setPref('wakeWord', v)
+              setPref('wakeAsked', true)
+            }}
+            label='Say "Hey NatBot"'
+            description="While NatAware is open, your browser listens for the phrase so you can talk to NatBot any time. Your browser's speech service hears audio while this is on."
+          />
+        ) : (
+          <p className="muted small">"Hey NatBot" needs Chrome, Edge or Safari.</p>
+        )}
       </div>
 
       <div className="settings-group">
@@ -271,5 +313,29 @@ export function SettingsPanel({ open, onClose }: { open: boolean; onClose: () =>
         </div>
       </div>
     </Dialog>
+  )
+}
+
+/** One-time offer to switch on the wake word (opt-in). */
+export function WakeOptIn({ onAnswer }: { onAnswer: (yes: boolean) => void }) {
+  return (
+    <section className="optin" role="dialog" aria-labelledby="optin-title" aria-describedby="optin-desc">
+      <div className="row">
+        <Orb size={36} />
+        <h2 id="optin-title">Call me any time</h2>
+      </div>
+      <p id="optin-desc" className="small">
+        Say <strong>"Hey NatBot"</strong> while NatAware is open and I'll start listening, no tapping needed. Your
+        browser listens for the phrase while this is on. You can turn it off any time.
+      </p>
+      <div className="row">
+        <button type="button" className="btn btn-primary btn-sm" onClick={() => onAnswer(true)}>
+          Turn on "Hey NatBot"
+        </button>
+        <button type="button" className="btn btn-ghost btn-sm" onClick={() => onAnswer(false)}>
+          Not now
+        </button>
+      </div>
+    </section>
   )
 }

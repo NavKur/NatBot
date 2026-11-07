@@ -36,6 +36,8 @@ Rules:
 - Money as £ with whole pounds unless pennies matter (e.g. a £8.99 subscription).
 - Warm, direct and non-judgemental. Never shame. No exclamation marks, no emoji.
 - Do not give regulated financial advice or recommend specific investment products.
+- The person's capacity and tendency are private context. Never mention those labels
+  (e.g. "Scrapper", "Comfort-Buyer") or call them a type of spender; describe habits instead.
 - Return every item id you were given, unchanged."""
 
 

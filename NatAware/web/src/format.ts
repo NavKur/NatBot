@@ -52,3 +52,21 @@ export function monthName(ym: string): string {
 export function uid(): string {
   return Math.random().toString(36).slice(2, 10)
 }
+
+const FRIENDLY: Record<string, string> = {
+  'Takeaway & Delivery': 'takeaways and delivery',
+  'Shopping - Online': 'online shopping',
+  'Shopping - Clothing': 'clothes shopping',
+  'Alcohol & Nightlife': 'drinks and nights out',
+  'Cash Withdrawal': 'cash withdrawals',
+  'Health & Pharmacy': 'pharmacy',
+}
+
+/** Category as it reads mid-sentence. */
+export function friendly(category: string): string {
+  return FRIENDLY[category] ?? category.toLowerCase()
+}
+
+export function listJoin(items: string[]): string {
+  return items.length <= 1 ? items.join('') : `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`
+}

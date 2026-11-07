@@ -414,7 +414,7 @@ def voice_speak(body: SpeakRequest) -> StreamingResponse:
     """Text-to-speech (ElevenLabs), streamed back as MP3 so playback can start immediately."""
     import httpx
 
-    from nataware.voice.tts import _TTS_URL
+    from nataware.voice.tts import _TTS_URL, VOICE_SETTINGS
 
     if not settings.elevenlabs_api_key:
         raise HTTPException(503, "ELEVENLABS_API_KEY is not configured")
@@ -424,7 +424,7 @@ def voice_speak(body: SpeakRequest) -> StreamingResponse:
         _TTS_URL.format(voice_id=settings.elevenlabs_voice_id),
         params={"output_format": "mp3_44100_128"},
         headers={"xi-api-key": settings.elevenlabs_api_key},
-        json={"text": body.text, "model_id": settings.elevenlabs_model},
+        json={"text": body.text, "model_id": settings.elevenlabs_model, "voice_settings": VOICE_SETTINGS},
     )
     resp = client.send(request, stream=True)
     if resp.status_code >= 400:

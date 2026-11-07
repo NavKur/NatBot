@@ -21,7 +21,10 @@ towards a healthier baseline.
 | Onboarding state machine (Claude) | ✅ Real | 3 questions → hidden `<profile>` JSON → validated 2D matrix |
 | Text-to-speech (ElevenLabs `eleven_turbo_v2_5`) | ✅ Real | Sentence-chunked, streamed PCM played as it arrives; `<profile>` never spoken |
 | Conversational coach (Claude + tools) | ✅ Real | NatBot calls real tools over the fake data: "highlight where I spent on alcohol" |
-| Transactions / statements | 🟡 Fake data | 271 synthetic Manchester transactions, Aug–Nov 2026 |
+| Web app (React) | ✅ Real | First-run voice interview → profile reveal → dashboard; NatBot panel with voice + text |
+| Browser voice | ✅ Real | Mic + silence detection in the browser → Whisper; ElevenLabs replies streamed per sentence. Falls back to the browser's own speech when keys are missing |
+| Dashboard "financial time travel" | ✅ Real maths, 🤖 Claude wording | Forecast, seasonal costs, goal timelines, strategies and insights are computed from the data; Claude rewrites them in plain English (cached; templates without a key) |
+| Transactions / statements | 🟡 Fake data | 1,202 synthetic Manchester transactions, Sep 2025 – Nov 2026 (a full winter, so seasonality is learnable) |
 | Statement parsing (pandas / PyMuPDF) | 🟡 Basic | CSV works on simple exports; PDF is a best-effort line parser |
 | Behavioural tagging | 🟡 Faked | Rule-based, same output contract as the Claude batch tagger |
 | Threat engine (weather / news) | 🟡 Faked | Synthetic `Daily_Macro_Summary`; deterministic scoring |
@@ -56,7 +59,28 @@ cp .env.example .env      # Windows: copy .env.example .env
 
 Fill in `.env` with `ANTHROPIC_API_KEY`, `OPENAI_API_KEY` and `ELEVENLABS_API_KEY`.
 
-### Talk to NatBot
+### Run the web app
+
+Two terminals:
+
+```bash
+uvicorn nataware.api.main:app --reload          # API on :8000
+```
+
+```bash
+cd web && npm install && npm run dev             # UI on http://localhost:5173
+```
+
+Open <http://localhost:5173>. The first visit runs NatBot's three-question interview (speak
+or type), reveals your Capacity × Tendency profile and the goals NatBot picked up, then opens
+the dashboard. Use the **NatBot** button (or any "Ask NatBot" link) to keep talking. No API
+keys? Choose **Skip and explore with a demo profile** to see the dashboard. **Accessibility →
+Reset demo** starts over.
+
+For a demo on one port: `cd web && npm run build`, then `uvicorn nataware.api.server:app`
+and open <http://localhost:8000>.
+
+### Talk to NatBot (terminal)
 
 ```bash
 python -m nataware
@@ -103,7 +127,13 @@ stored for the API (`GET /highlights`) so the front end can show them.
 - **Demo user:** based in Manchester, salary £2,850/month, spending roughly everything they
   earn. Default profile: *The Scrapper × The Comfort-Buyer* (55/25/20 baseline), assessed
   2026-10-17, so they're on stage 2 of their coaching plan. Completing onboarding replaces it.
-- Regenerate the transactions with `python scripts/generate_seed_data.py` (deterministic).
+- The history runs Sep 2025 – Nov 2026 so last winter is in the data: a Christmas spike,
+  higher heating bills, more pharmacy runs and a quieter January. That's what the forecast
+  and the "Awareness for you" cards learn from.
+- Demo goals: House deposit £15,000 (£2,100 saved) and Emergency fund £3,000 (£450 saved).
+  Goals from onboarding share the £2,550 savings pot in `data/seed/account.json`.
+- Regenerate with `python scripts/generate_seed_data.py` (deterministic). It also writes
+  `account.json` (name, balance, savings pot, payday).
 - Runtime changes are written to `data/runtime/state.json` (git-ignored). Delete it, or run
   `python -m nataware reset`, to start fresh.
 - All merchants, amounts, weather alerts and news items are **synthetic**. Amounts are in GBP.
@@ -134,11 +164,23 @@ Docs: <http://127.0.0.1:8000/docs>
 | GET | `/coaching/plan` | Current stage, micro-goals, weekly limit and progress |
 | GET | `/nudges` · POST `/triggers/{kind}` | Delivered nudges; fire `transaction` / `macro` / `temporal` |
 | POST | `/chat` | **Real** text chat with NatBot (`mode: onboarding \| coach`). Returns `tool_events` so the UI can render highlights |
-| POST | `/demo/reset` | Reset to seed data |
+| POST | `/demo/reset` | Reset to seed data (and back to first-run onboarding) |
+| GET | `/app/state` | First visit or not, the account, which keys are configured |
+| POST | `/onboarding/skip` | Use the demo profile without the interview |
+| GET | `/dashboard` | Everything the home screen shows, in one payload (see below) |
+| POST | `/chat/stream` | Server-sent events: `session`, `sentence`…, `tool`…, `done` / `error` |
+| POST | `/voice/transcribe` | Browser audio (webm / mp4 / ogg) → Whisper text |
+| POST | `/voice/speak` | Text → ElevenLabs MP3, streamed |
+| POST · DELETE | `/setasides` · `/setasides/{event_id}` | "Save £x/week" for a seasonal cost (feeds the winter buffer) |
+| GET | `/recurring` | Detected bills and subscriptions, with price changes |
 
-The voice pipeline currently runs in the local CLI, as the blueprint specifies (client-side
-capture). `/chat` gives the front end the same brain over text. Wiring browser audio into
-the API is the natural next step when the UI is merged.
+`GET /dashboard` returns `stats`, `goals` (projections + strategies), `forecast`, `noticed`,
+`awareness`, `threats`, `recurring`, `plan`, `budget`, `nudges` and `narration.status`
+(`pending` while Claude is writing the wording, then `ready`; `templates` without a key).
+
+Voice works in both places: the terminal CLI captures audio locally (as the blueprint
+specifies), and the web app records in the browser and uses `/voice/transcribe` and
+`/voice/speak`. Both share the same Claude sessions and tools.
 
 ---
 
@@ -164,10 +206,25 @@ NatAware/
 │   ├── data/                   # JSON-backed stand-in for PostgreSQL
 │   ├── ingestion/              # Phase 2: parser + behavioural tagging
 │   ├── threats/                # Phase 3: macro aggregation + threat matrix
+│   ├── insights/               # "financial time travel" for the dashboard
+│   │   ├── forecast.py         #   monthly forecast: last 3 months × last year's season + price rises
+│   │   ├── awareness.py        #   seasonal cards (Christmas, heating…) from last year + local news
+│   │   ├── goals.py            #   goal timelines + strategies valued from real spending
+│   │   ├── noticed.py          #   unusual spending, subscriptions, cash-flow to payday, bill changes
+│   │   ├── recurring.py        #   recurring payment detection
+│   │   ├── narrate.py          #   Claude rewrites the facts in plain English (cached)
+│   │   └── dashboard.py        #   assembles GET /dashboard
 │   ├── coaching/               # Phase 4: transition matrix, triggers, nudges, delivery
 │   ├── worker/                 # Celery app, beat schedule, tasks
 │   └── api/                    # FastAPI
+├── web/                        # React + Vite front end (see "Run the web app")
+│   └── src/
+│       ├── pages/              #   Onboarding, Home, Spending, Recurring, Statements
+│       ├── home/               #   dashboard sections + charts
+│       ├── components/         #   shell, NatBot panel, conversation, dialogs
+│       └── voice/              #   mic + silence detection, speech queue, conversation hook
 ├── config/transition_matrix.json
+├── config/seasonal_events.json
 ├── data/seed/                  # synthetic demo data
 ├── db/schema.sql               # production PostgreSQL schema
 ├── scripts/generate_seed_data.py
@@ -214,9 +271,26 @@ See `.env.example`. Notable settings:
 
 - `ANTHROPIC_MODEL` defaults to `claude-sonnet-5-5`. The blueprint names Claude 3.5 Sonnet,
   which has been retired, so the model is configurable.
+- `ANTHROPIC_EFFORT` (`low` | `medium` | `high`, default `medium`): lower makes spoken replies
+  faster.
 - `ELEVENLABS_VOICE_ID` sets NatBot's voice (any voice from your ElevenLabs library).
 - `VAD_SILENCE_SECONDS` / `VAD_AGGRESSIVENESS` tune turn-taking. Raise aggressiveness (max 3)
   in noisy rooms.
+
+## Accessibility and inclusion
+
+- Voice and text everywhere, both always available. Every spoken reply is also on screen,
+  and screen readers hear each complete reply once.
+- **Accessibility** settings (saved per device): text size, high contrast, easier-reading
+  spacing, reduced motion, Plain English wording, spoken replies on/off, hands-free mode.
+- Keyboard: skip link, visible focus, dialogs trap focus and close with Escape, and every
+  chart has a text summary and a "Show as a table" view.
+- Chart colours were checked for colour-blind separation and contrast. Status is never
+  shown by colour alone.
+- NatBot uses plain words, explains terms like ISA, and points people who sound in hardship
+  to free help (MoneyHelper, StepChange, Citizens Advice).
+- The web app passes an axe-core WCAG 2.2 AA scan with no violations (home, NatBot panel,
+  high-contrast mode, spending).
 
 ## Tests
 
@@ -224,8 +298,9 @@ See `.env.example`. Notable settings:
 pytest
 ```
 
-The tests cover sentence chunking and `<profile>` hiding, profile extraction, every coach
-tool against the seed data, the streaming tool-use loop (with a fake Claude client), and
+The tests cover sentence chunking and `<profile>` hiding, profile extraction (including
+inferred goals), every coach tool against the seed data, the forecasting / seasonal / goal
+engines, the streaming tool-use loop (with a fake Claude client), the SSE chat stream, and
 the API. They need no API keys and no audio hardware.
 
 ## Troubleshooting

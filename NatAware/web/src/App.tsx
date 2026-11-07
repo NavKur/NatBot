@@ -2,17 +2,20 @@ import { LoaderCircle } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { api } from './api'
 import { Orb } from './components/bits'
-import { BottomNav, Header, NatBotPanel, SettingsPanel, type Route } from './components/Shell'
+import { BottomNav, Header, NatBotPanel, SettingsPanel, WakeOptIn, type Route } from './components/Shell'
 import { Home } from './pages/Home'
 import { Onboarding } from './pages/Onboarding'
+import { PlanPage } from './pages/PlanPage'
 import { RecurringPage } from './pages/RecurringPage'
 import { Spending } from './pages/Spending'
 import { Statements } from './pages/Statements'
 import type { AppState, Dashboard, ToolEvent } from './types'
-import { unlockAudio } from './voice/audio'
+import { audioContext, unlockAudio } from './voice/audio'
 import { useNatBot } from './voice/useNatBot'
+import { WakeWordListener, chime, wakeWordSupported, type WakeState } from './voice/wakeWord'
+import { usePrefs } from './prefs'
 
-const ROUTES: Route[] = ['home', 'spending', 'recurring', 'statements']
+const ROUTES: Route[] = ['home', 'spending', 'plan', 'recurring', 'statements']
 
 function parseHash(): { route: Route; q: string } {
   const [path, query] = window.location.hash.replace(/^#\/?/, '').split('?')
@@ -121,7 +124,44 @@ function Shell({ state, onOpenSettings }: { state: AppState; onOpenSettings: () 
     },
     [refresh],
   )
-  const bot = useNatBot({ mode: 'coach', capabilities: state.capabilities, onTool })
+  const { prefs, setPref } = usePrefs()
+  const wake = useRef<WakeWordListener | null>(null)
+  const [wakeState, setWakeState] = useState<WakeState>('off')
+  const bot = useNatBot({ mode: 'coach', capabilities: state.capabilities, onTool, onMicStart: () => wake.current?.pause() })
+  const botRef = useRef(bot)
+  botRef.current = bot
+
+  // "Hey NatBot": open the panel, then either answer what followed the phrase or start listening.
+  const onWake = useCallback((rest: string) => {
+    const b = botRef.current
+    chime(audioContext())
+    setPanelOpen(true)
+    b.enableVoice()
+    if (rest.split(/\s+/).filter(Boolean).length >= 2) void b.send(rest)
+    else void b.listen()
+  }, [])
+
+  useEffect(() => {
+    wake.current = new WakeWordListener((rest) => onWake(rest), setWakeState)
+    return () => wake.current?.stop()
+  }, [onWake])
+
+  useEffect(() => {
+    if (!wake.current) return
+    if (prefs.wakeWord && wakeWordSupported()) wake.current.start()
+    else wake.current.stop()
+  }, [prefs.wakeWord])
+
+  // Pause while NatBot is listening, thinking or talking; resume after a quiet moment.
+  useEffect(() => {
+    if (!wake.current || !prefs.wakeWord) return
+    if (bot.status !== 'idle') {
+      wake.current.pause()
+      return
+    }
+    const t = setTimeout(() => wake.current?.resume(), 1500)
+    return () => clearTimeout(t)
+  }, [bot.status, prefs.wakeWord])
 
   const ask = useCallback(
     (question: string) => {
@@ -150,6 +190,8 @@ function Shell({ state, onOpenSettings }: { state: AppState; onOpenSettings: () 
         state={state}
         nudges={dash?.nudges ?? []}
         onOpenSettings={onOpenSettings}
+        wakeState={wakeState}
+        onWakeOff={() => setPref('wakeWord', false)}
         onSearch={(text) => {
           window.location.hash = `#/spending${text ? `?q=${encodeURIComponent(text)}` : ''}`
         }}
@@ -169,6 +211,7 @@ function Shell({ state, onOpenSettings }: { state: AppState; onOpenSettings: () 
             </div>
           ))}
         {route === 'spending' && <Spending today={state.today} query={q} version={version} />}
+        {route === 'plan' && (dash ? <PlanPage d={dash} onAsk={ask} /> : null)}
         {route === 'recurring' && <RecurringPage onAsk={ask} version={version} />}
         {route === 'statements' && <Statements onUploaded={refresh} />}
       </main>
@@ -194,6 +237,15 @@ function Shell({ state, onOpenSettings }: { state: AppState; onOpenSettings: () 
         }}
       />
       <NatBotPanel open={panelOpen} onClose={closePanel} bot={bot} firstName={state.account.first_name} />
+      {!prefs.wakeAsked && wakeWordSupported() && dash && !panelOpen && (
+        <WakeOptIn
+          onAnswer={(yes) => {
+            if (yes) unlockAudio(true)
+            setPref('wakeWord', yes)
+            setPref('wakeAsked', true)
+          }}
+        />
+      )}
     </div>
   )
 }

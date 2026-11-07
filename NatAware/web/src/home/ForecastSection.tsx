@@ -1,7 +1,6 @@
 import { MessageCircle } from 'lucide-react'
 import { Area, CartesianGrid, ComposedChart, Line, ReferenceArea, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { compactMoney, money } from '../format'
-import { usePrefs } from '../prefs'
 import type { Forecast } from '../types'
 import { C } from './chartTheme'
 
@@ -16,7 +15,6 @@ interface Row {
 }
 
 export function ForecastSection({ forecast, onAsk }: { forecast: Forecast; onAsk: (q: string) => void }) {
-  const { prefs } = usePrefs()
   const rows: Row[] = forecast.actual.map((a) => ({ label: a.label, month: a.month, actual: a.total }))
   // Join the dashed prediction to the last actual point so the line is continuous.
   if (rows.length) rows[rows.length - 1].predicted = rows[rows.length - 1].actual
@@ -30,8 +28,9 @@ export function ForecastSection({ forecast, onAsk }: { forecast: Forecast; onAsk
       toDate: p.actual_to_date,
     })
   }
-  const first = forecast.forecast[0]?.label
-  const last = forecast.forecast[forecast.forecast.length - 1]?.label
+  const firstMonth = forecast.forecast[0]?.month
+  const lastMonth = forecast.forecast[forecast.forecast.length - 1]?.month
+  const labelFor = Object.fromEntries(rows.map((r) => [r.month, r.label]))
   const peak = forecast.peak
 
   const summary =
@@ -65,25 +64,25 @@ export function ForecastSection({ forecast, onAsk }: { forecast: Forecast; onAsk
         </div>
       </div>
 
-      <div className="chart-wrap" style={{ height: 300 }} role="img" aria-label={summary}>
+      <div className="chart-wrap" style={{ height: 220 }} role="img" aria-label={summary}>
         <ResponsiveContainer>
           <ComposedChart data={rows} margin={{ top: 22, right: 12, bottom: 0, left: 0 }}>
             <CartesianGrid vertical={false} stroke={C.grid} />
-            {first && last && (
+            {firstMonth && lastMonth && (
               <ReferenceArea
-                x1={first}
-                x2={last}
+                x1={firstMonth}
+                x2={lastMonth}
                 fill={C.forecastZone}
                 fillOpacity={1}
-                label={{ value: 'Forecast', position: 'insideTopLeft', fill: C.tick, fontSize: 12 }}
+                label={{ value: 'Forecast', position: 'insideTopLeft', fill: C.tick, fontSize: '0.78rem' }}
               />
             )}
-            <XAxis dataKey="label" tickLine={false} axisLine={false} tick={{ fill: C.tick, fontSize: 12 }} />
-            <YAxis width={56} tickLine={false} axisLine={false} tick={{ fill: C.tick, fontSize: 12 }} tickFormatter={compactMoney} domain={['auto', 'auto']} />
+            <XAxis dataKey="month" tickFormatter={(m) => labelFor[m] ?? m} tickLine={false} axisLine={false} tick={{ fill: C.tick, fontSize: '0.78rem' }} />
+            <YAxis width={56} tickLine={false} axisLine={false} tick={{ fill: C.tick, fontSize: '0.78rem' }} tickFormatter={compactMoney} domain={['auto', 'auto']} />
             <Tooltip content={<ForecastTooltip />} />
-            <Area dataKey="range" stroke="none" fill={C.band} fillOpacity={0.14} isAnimationActive={!prefs.reduceMotion} />
-            <Line dataKey="actual" stroke={C.series1} strokeWidth={2} dot={{ r: 4, fill: C.series1, stroke: C.surface, strokeWidth: 2 }} isAnimationActive={!prefs.reduceMotion} />
-            <Line dataKey="predicted" stroke={C.series1} strokeWidth={2} strokeDasharray="6 5" dot={{ r: 4, fill: C.surface, stroke: C.series1, strokeWidth: 2 }} isAnimationActive={!prefs.reduceMotion} />
+            <Area dataKey="range" stroke="none" fill={C.band} fillOpacity={0.14} isAnimationActive={false} />
+            <Line dataKey="actual" stroke={C.series1} strokeWidth={2} dot={{ r: 4, fill: C.series1, stroke: C.surface, strokeWidth: 2 }} isAnimationActive={false} />
+            <Line dataKey="predicted" stroke={C.series1} strokeWidth={2} strokeDasharray="6 5" dot={{ r: 4, fill: C.surface, stroke: C.series1, strokeWidth: 2, strokeDasharray: '0' }} isAnimationActive={false} />
           </ComposedChart>
         </ResponsiveContainer>
       </div>

@@ -43,13 +43,67 @@ def usual_monthly_savings(txns: list[dict[str, Any]], today: date) -> float:
     return round(avg(totals.values()), 2)
 
 
-def allocate_saved(goals: list[Goal], savings_balance: float) -> dict[str, float]:
-    """Goals without an explicit `saved` share whatever is left in the savings pot, by target size."""
-    explicit = {g.id: g.saved for g in goals if g.saved is not None}
-    left = max(0.0, savings_balance - sum(explicit.values()))
-    open_goals = [g for g in goals if g.saved is None]
+def pot_summaries(account: dict[str, Any], txns: list[dict[str, Any]], today: date, months: int = 12) -> list[dict[str, Any]]:
+    """Each savings pot's balance now, its month-end balance history, and its usual monthly deposit."""
+    out = []
+    recent = last_full_months(today, 3)
+    history_months = last_full_months(today, months)
+    for pot in account.get("pots", []):
+        flows = [t for t in txns if t["merchant"] == pot["merchant"] and t["category"] == "Savings Transfer"]
+        balance = float(pot.get("opening_balance", 0))
+        by_month: dict[str, float] = {}
+        deposits: dict[str, float] = {}
+        for t in sorted(flows, key=lambda t: t["date"]):
+            delta = t["amount"] if t["direction"] == "debit" else -t["amount"]  # debit = money into the pot
+            balance += delta
+            by_month[t["date"][:7]] = balance
+            if delta > 0:
+                deposits[t["date"][:7]] = deposits.get(t["date"][:7], 0.0) + delta
+        # Month-end balances, carrying the last known balance through quiet months.
+        history, last = [], float(pot.get("opening_balance", 0))
+        for m in sorted(set(by_month) | set(history_months)):
+            last = by_month.get(m, last)
+            if m in history_months:
+                history.append({"month": m, "balance": round(last, 2)})
+        withdrawals = [t for t in flows if t["direction"] == "credit"]
+        out.append({
+            "id": pot["id"],
+            "name": pot["name"],
+            "kind": pot["kind"],
+            "balance": round(balance, 2),
+            "history": history,
+            "usual_monthly": round(avg(deposits.get(m, 0.0) for m in recent), 2),
+            "saved_last_12_months": round(sum(v for m, v in deposits.items() if m in history_months), 2),
+            "withdrawals_last_12_months": [
+                {"date": t["date"], "amount": t["amount"]} for t in withdrawals if t["date"][:7] in history_months
+            ],
+        })
+    return out
+
+
+def match_pots(goals: list[Goal], pots: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    """Link each goal to a pot of the same kind (first come, first served)."""
+    free = list(pots)
+    matched = {}
+    for g in goals:
+        pot = next((p for p in free if p["kind"] == g.kind), None)
+        if pot:
+            matched[g.id] = pot
+            free.remove(pot)
+    return matched
+
+
+def allocate_saved(goals: list[Goal], pots: list[dict[str, Any]]) -> dict[str, float]:
+    """Saved per goal: its own pot's balance; otherwise an explicit figure; otherwise a share
+    (by target size) of whatever sits in pots no goal has claimed."""
+    matched = match_pots(goals, pots)
+    out = {gid: pot["balance"] for gid, pot in matched.items()}
+    explicit = {g.id: g.saved for g in goals if g.id not in out and g.saved is not None}
+    out.update(explicit)
+    claimed = {p["id"] for p in matched.values()}
+    left = max(0.0, sum(p["balance"] for p in pots if p["id"] not in claimed) - sum(explicit.values()))
+    open_goals = [g for g in goals if g.id not in out]
     weight = sum(g.target for g in open_goals) or 1
-    out = dict(explicit)
     for g in open_goals:
         out[g.id] = min(g.target, round(left * g.target / weight / 10) * 10)
     return out
@@ -163,12 +217,20 @@ def plan_monthly(strategies: list[dict[str, Any]], usual: float, selected: set[s
 
 
 def goal_plans(profile: Profile, account: dict[str, Any], txns: list[dict[str, Any]], today: date) -> dict[str, Any]:
-    usual = usual_monthly_savings(txns, today)
-    saved_map = allocate_saved(profile.goals, float(account.get("savings_balance", 0)))
+    pots = pot_summaries(account, txns, today)
+    usual_total = usual_monthly_savings(txns, today)
+    saved_map = allocate_saved(profile.goals, pots)
+    matched = match_pots(profile.goals, pots)
+    unmatched_usual = max(0.0, usual_total - sum(p["usual_monthly"] for p in matched.values()))
+    open_weight = sum(g.target for g in profile.goals if g.id not in matched) or 1
+
     plans = []
     for g in profile.goals:
+        pot = matched.get(g.id)
         saved = saved_map.get(g.id, 0.0)
         remaining = max(0.0, g.target - saved)
+        # What normally goes towards THIS goal each month.
+        usual = pot["usual_monthly"] if pot else round(unmatched_usual * g.target / open_weight, 2)
         strategies = strategies_for(g, profile, txns, today)
         with_plan = plan_monthly(strategies, usual)
         plans.append({
@@ -177,9 +239,17 @@ def goal_plans(profile: Profile, account: dict[str, Any], txns: list[dict[str, A
             "remaining": round(remaining, 2),
             "progress": round(saved / g.target, 3) if g.target else 0,
             "usual_monthly": usual,
+            "history": pot["history"] if pot else [],
+            "saved_last_12_months": pot["saved_last_12_months"] if pot else None,
+            "pot_name": pot["name"] if pot else None,
             "strategies": strategies,
             "current_path_months": project_months(remaining, usual),
             "plan_monthly": with_plan,
             "plan_months": project_months(remaining, with_plan),
         })
-    return {"usual_monthly_savings": usual, "savings_balance": account.get("savings_balance", 0), "goals": plans}
+    return {
+        "usual_monthly_savings": usual_total,
+        "savings_balance": round(sum(p["balance"] for p in pots), 2),
+        "pots": [{k: p[k] for k in ("id", "name", "kind", "balance", "usual_monthly")} for p in pots],
+        "goals": plans,
+    }

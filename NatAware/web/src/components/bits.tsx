@@ -12,7 +12,10 @@ import {
   PiggyBank,
   Pill,
   Plane,
+  ShoppingBag,
   Sparkles,
+  Sun,
+  Tag,
   TriangleAlert,
   type LucideIcon,
 } from 'lucide-react'
@@ -71,6 +74,10 @@ export const EVENT_ICONS: Record<string, LucideIcon> = {
   gift: Gift,
   flame: Flame,
   cloud: Cloud,
+  tag: Tag,
+  'shopping-bag': ShoppingBag,
+  sun: Sun,
+  heart: Heart,
 }
 
 export function ImpactBadge({ impact }: { impact: 'high' | 'medium' | 'low' }) {

@@ -50,7 +50,7 @@ def _unusual_spending(txns: list[dict[str, Any]], today: date, profile: Profile)
         "label": "Unusual spending" if above else "On track",
         "tone": "warning" if above else "positive",
         "plain": (
-            f"{friendly(best['category']).capitalize()} is {pct}% above your usual for this point in the month."
+            f"Your spending on {friendly(best['category'])} is {pct}% above your usual for this point in the month."
             if above else f"Your spending is at or below your usual pace this month. Nice work."
         ),
         "detail": (
@@ -156,13 +156,90 @@ def _bill_change(recurring: list[dict[str, Any]], today: date) -> dict[str, Any]
     }
 
 
+SURPRISE_CATEGORIES = {"Pets", "Home & Repairs", "Health & Pharmacy"}
+
+
+def surprise_costs(txns: list[dict[str, Any]], today: date) -> list[dict[str, Any]]:
+    """One-off costs nobody plans for: vet bills, emergency dentists, repairs."""
+    since = (today - timedelta(days=730)).isoformat()
+    return [
+        t for t in txns
+        if t["direction"] == "debit" and t["date"] >= since
+        and ("unexpected" in t.get("tags", []) or (t["category"] in SURPRISE_CATEGORIES and t["amount"] >= 60))
+    ]
+
+
+def _unexpected(txns: list[dict[str, Any]], today: date, pots: list[dict[str, Any]]) -> dict[str, Any] | None:
+    hits = surprise_costs(txns, today)
+    if len(hits) < 2:
+        return None
+    first = min(t["date"] for t in txns)
+    months = max(1, min(24, (today - date.fromisoformat(first)).days // 30))
+    total = sum(t["amount"] for t in hits)
+    per_month = total / months
+    typical = total / len(hits)
+    fund = next((p for p in pots if p["kind"] == "emergency"), None)
+    covers = int(fund["balance"] // typical) if fund and typical else 0
+    kinds = {"Pets": "vet bills", "Home & Repairs": "repairs", "Health & Pharmacy": "dental bills"}
+    named = sorted({kinds.get(t["category"], "one-off bills") for t in hits})
+    examples = " and ".join([", ".join(named[:-1]), named[-1]]) if len(named) > 1 else named[0]
+    return {
+        "id": "surprise-costs",
+        "kind": "unexpected_costs",
+        "label": "Surprise costs",
+        "tone": "info",
+        "plain": (
+            f"Surprise costs like {examples} have averaged {gbp(per_month)} a month for you."
+            + (f" Your emergency fund covers about {covers} more." if fund else " An emergency fund would soften the next one.")
+        ),
+        "detail": (
+            f"{len(hits)} unplanned costs in the last {months} months, {gbp(total)} in total; a typical one is about "
+            f"{gbp(typical)}." + (f" Your emergency fund has {gbp(fund['balance'])}." if fund else "")
+        ),
+        "facts": {"count": len(hits), "months": months, "total": round(total, 2), "per_month": round(per_month, 2),
+                  "typical": round(typical, 2), "emergency_fund": fund["balance"] if fund else None, "covers": covers},
+        "ask": "How big should my emergency fund be?",
+    }
+
+
+def _savings(pots: list[dict[str, Any]], today: date) -> dict[str, Any] | None:
+    if not pots:
+        return None
+    last_month = (today.replace(day=1) - timedelta(days=1))
+    saved_last = sum(p["usual_monthly"] for p in pots)  # 3-month typical, steadier than one month
+    year = sum(p["saved_last_12_months"] for p in pots)
+    used = [w for p in pots for w in p["withdrawals_last_12_months"]]
+    total = sum(p["balance"] for p in pots)
+    pot_list = ", ".join(p["name"] + " " + gbp(p["balance"]) for p in pots)
+    return {
+        "id": "savings",
+        "kind": "savings",
+        "label": "Savings",
+        "tone": "positive",
+        "plain": f"You've saved {gbp(year)} into your pots over the past year, about {gbp(saved_last)} a month. Nice and steady.",
+        "detail": (
+            f"Your pots hold {gbp(total)} now ({pot_list})."
+            + (f" Your emergency fund paid for {len(used)} surprise cost{'s' if len(used) != 1 else ''} this year "
+               f"({gbp(sum(w['amount'] for w in used))}), which is exactly what it's for." if used else "")
+        ),
+        "facts": {"saved_last_12_months": year, "typical_month": saved_last, "pots_total": total,
+                  "withdrawals": len(used), "as_of": last_month.isoformat()},
+        "ask": "How am I doing with my savings?",
+    }
+
+
 def noticed(
     txns: list[dict[str, Any]], today: date, profile: Profile, account: dict[str, Any], recurring: list[dict[str, Any]]
 ) -> list[dict[str, Any]]:
+    from nataware.insights.goals import pot_summaries
+
+    pots = pot_summaries(account, txns, today)
     cards = [
         _unusual_spending(txns, today, profile),
-        _subscriptions(txns, today, recurring),
         cash_flow_prediction(txns, today, account, recurring),
         _bill_change(recurring, today),
+        _unexpected(txns, today, pots),
+        _subscriptions(txns, today, recurring),
+        _savings(pots, today),
     ]
     return [c for c in cards if c]

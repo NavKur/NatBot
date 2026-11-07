@@ -27,6 +27,9 @@ export interface Goal {
   plan_monthly: number
   plan_months: number | null
   strategies: Strategy[]
+  history: { month: string; balance: number }[]
+  saved_last_12_months: number | null
+  pot_name: string | null
 }
 
 export interface Strategy {
@@ -172,7 +175,12 @@ export interface Dashboard {
     seasonal_alerts: number
     winter_buffer: { weekly: number; suggested_weekly: number }
   }
-  goals: { usual_monthly_savings: number; savings_balance: number; goals: Goal[] }
+  goals: {
+    usual_monthly_savings: number
+    savings_balance: number
+    pots: { id: string; name: string; kind: string; balance: number; usual_monthly: number }[]
+    goals: Goal[]
+  }
   forecast: Forecast
   noticed: Insight[]
   awareness: AwarenessEvent[]

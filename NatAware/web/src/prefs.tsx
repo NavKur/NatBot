@@ -9,6 +9,8 @@ export interface Prefs {
   plainEnglish: boolean // simplest wording on insight cards
   voiceReplies: boolean // NatBot reads replies aloud
   autoListen: boolean // start listening again after NatBot finishes speaking
+  wakeWord: boolean // listen for "Hey NatBot" while the app is open (opt-in)
+  wakeAsked: boolean // we've offered the wake word once
 }
 
 const DEFAULTS: Prefs = {
@@ -19,6 +21,8 @@ const DEFAULTS: Prefs = {
   plainEnglish: true,
   voiceReplies: true,
   autoListen: true,
+  wakeWord: false,
+  wakeAsked: false,
 }
 
 const KEY = 'nataware.prefs.v1'

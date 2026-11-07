@@ -17,6 +17,8 @@ CATEGORIES: dict[str, str] = {
     "Groceries": "needs",
     "Transport": "needs",
     "Health & Pharmacy": "needs",
+    "Pets": "needs",
+    "Home & Repairs": "needs",
     "Debt Repayment": "savings",
     "Savings Transfer": "savings",
     "Takeaway & Delivery": "wants",
@@ -113,7 +115,8 @@ def budget_status(txns: list[dict[str, Any]], baseline: dict[str, float], month:
     """Actual Needs/Wants/Savings split for a month, against the profile's optimal baseline."""
     month = month or previous_month()
     in_month = [t for t in txns if t["date"].startswith(month)]
-    income = sum(t["amount"] for t in in_month if t["direction"] == "credit")
+    # Money moved back from a savings pot isn't income.
+    income = sum(t["amount"] for t in in_month if t["direction"] == "credit" and t["category"] != "Savings Transfer")
     buckets = {"needs": 0.0, "wants": 0.0, "savings": 0.0}
     for t in in_month:
         if t["direction"] != "debit":

@@ -1,6 +1,5 @@
 import { ArrowRight, Clock, Keyboard, Lock, Mic, Settings2 } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
-import { CAPACITY_TEXT, TENDENCY_TEXT, shortName } from '../archetypes'
 import { GOAL_ICONS, Logo, Orb } from '../components/bits'
 import { Conversation } from '../components/Conversation'
 import { money } from '../format'
@@ -125,41 +124,15 @@ export function Onboarding({ state, onDone, onSkip, onOpenSettings }: Props) {
           <section className="reveal" aria-labelledby="reveal-title">
             <div className="reveal-hero">
               <Orb size={84} />
-              <p className="eyebrow">Your money profile</p>
+              <p className="eyebrow">Thanks, {firstName}</p>
               <h1 id="reveal-title" ref={heading} tabIndex={-1} className="page-title">
-                {shortName(profile.capacity)} · {shortName(profile.tendency)}
+                Here's what I'll help you with
               </h1>
-              {profile.rationale && <p className="muted">{profile.rationale}</p>}
-            </div>
-
-            <div className="archetype">
-              <div className="card">
-                <p className="eyebrow">How much room you have</p>
-                <h2 className="card-title">{profile.capacity}</h2>
-                <p className="small" style={{ marginTop: '0.4rem' }}>
-                  {CAPACITY_TEXT[profile.capacity]}
-                </p>
-              </div>
-              <div className="card">
-                <p className="eyebrow">What drives your spending</p>
-                <h2 className="card-title">{profile.tendency}</h2>
-                <p className="small" style={{ marginTop: '0.4rem' }}>
-                  {TENDENCY_TEXT[profile.tendency]}
-                </p>
-              </div>
-            </div>
-
-            <div className="card">
-              <h2 className="card-title">Your healthy split</h2>
-              <p className="muted small" style={{ margin: '0.25rem 0 0.9rem' }}>
-                Of every pound you earn, here's the balance NatBot will help you work towards.
-              </p>
-              <BaselineBar baseline={profile.optimal_baseline} />
             </div>
 
             {profile.goals.length > 0 && (
               <div className="card">
-                <h2 className="card-title">Goals I picked up</h2>
+                <h2 className="card-title">Your goals</h2>
                 <ul className="list" style={{ marginTop: '0.5rem' }}>
                   {profile.goals.map((g) => {
                     const Icon = GOAL_ICONS[g.kind] ?? GOAL_ICONS.other
@@ -173,9 +146,17 @@ export function Onboarding({ state, onDone, onSkip, onOpenSettings }: Props) {
                     )
                   })}
                 </ul>
-                <p className="muted small">You can change these any time by telling NatBot.</p>
+                <p className="muted small">Picked up from what you told me. You can change these any time by telling NatBot.</p>
               </div>
             )}
+
+            <div className="card">
+              <h2 className="card-title">A healthy split for you</h2>
+              <p className="muted small" style={{ margin: '0.25rem 0 0.9rem' }}>
+                Of every pound you earn, here's the balance we'll work towards together, a step at a time.
+              </p>
+              <BaselineBar baseline={profile.optimal_baseline} />
+            </div>
 
             <button type="button" className="btn btn-primary" style={{ justifySelf: 'center', minHeight: 56 }} onClick={onDone}>
               See my dashboard <ArrowRight size={20} aria-hidden="true" />
