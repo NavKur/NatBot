@@ -1,0 +1,7 @@
+{
+  "capacity": "The Scrapper",
+  "tendency": "The Comfort-Buyer",
+  "optimal_baseline": {"needs": 55, "wants": 25, "savings": 20},
+  "rationale": "Covers the essentials with little buffer, and reaches for delivery food and late-night shopping when tired or stressed.",
+  "assessed_at": "2026-10-17"
+}

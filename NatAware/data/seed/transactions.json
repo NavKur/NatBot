@@ -1,0 +1,4857 @@
+[
+ {
+  "id": "txn_0001",
+  "date": "2026-08-01",
+  "time": "00:04",
+  "merchant": "Uber",
+  "amount": 10.5,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "taxi",
+   "late-night"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0002",
+  "date": "2026-08-01",
+  "time": "06:10",
+  "merchant": "Ancoats Lettings Ltd",
+  "amount": 850.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Rent",
+  "tags": [
+   "rent",
+   "standing-order"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0003",
+  "date": "2026-08-01",
+  "time": "06:12",
+  "merchant": "Manchester City Council",
+  "amount": 118.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Council Tax",
+  "tags": [
+   "council tax",
+   "direct-debit"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0004",
+  "date": "2026-08-01",
+  "time": "06:20",
+  "merchant": "PureGym Manchester",
+  "amount": 24.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Fitness",
+  "tags": [
+   "gym",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0005",
+  "date": "2026-08-01",
+  "time": "19:35",
+  "merchant": "The Pilcrow Pub",
+  "amount": 47.49,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0006",
+  "date": "2026-08-02",
+  "time": "07:00",
+  "merchant": "Barclaycard Repayment",
+  "amount": 120.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Debt Repayment",
+  "tags": [
+   "credit card",
+   "debt"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0007",
+  "date": "2026-08-02",
+  "time": "18:15",
+  "merchant": "Tesco Express Ancoats",
+  "amount": 40.57,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0008",
+  "date": "2026-08-02",
+  "time": "18:28",
+  "merchant": "Rudy's Pizza Ancoats",
+  "amount": 37.48,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "dinner"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0009",
+  "date": "2026-08-03",
+  "time": "03:14",
+  "merchant": "Netflix",
+  "amount": 12.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "streaming",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0010",
+  "date": "2026-08-03",
+  "time": "12:08",
+  "merchant": "Greggs",
+  "amount": 7.06,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0011",
+  "date": "2026-08-03",
+  "time": "19:16",
+  "merchant": "Just Eat",
+  "amount": 18.2,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0012",
+  "date": "2026-08-04",
+  "time": "07:28",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0013",
+  "date": "2026-08-04",
+  "time": "17:15",
+  "merchant": "Sainsbury's Local Piccadilly",
+  "amount": 7.15,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0014",
+  "date": "2026-08-04",
+  "time": "19:06",
+  "merchant": "Just Eat",
+  "amount": 18.34,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0015",
+  "date": "2026-08-05",
+  "time": "08:00",
+  "merchant": "Octopus Energy",
+  "amount": 72.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Utilities",
+  "tags": [
+   "energy",
+   "gas",
+   "electric"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0016",
+  "date": "2026-08-05",
+  "time": "19:48",
+  "merchant": "Uber Eats",
+  "amount": 28.17,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0017",
+  "date": "2026-08-06",
+  "time": "08:33",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0018",
+  "date": "2026-08-06",
+  "time": "23:02",
+  "merchant": "Uber Eats",
+  "amount": 31.46,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0019",
+  "date": "2026-08-07",
+  "time": "13:58",
+  "merchant": "Leon Piccadilly Gardens",
+  "amount": 6.02,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0020",
+  "date": "2026-08-07",
+  "time": "18:39",
+  "merchant": "Tesco Express Ancoats",
+  "amount": 10.61,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0021",
+  "date": "2026-08-07",
+  "time": "18:41",
+  "merchant": "Rudy's Pizza Ancoats",
+  "amount": 25.19,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "dinner"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0022",
+  "date": "2026-08-08",
+  "time": "00:18",
+  "merchant": "Uber",
+  "amount": 12.91,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "taxi",
+   "late-night"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0023",
+  "date": "2026-08-08",
+  "time": "22:10",
+  "merchant": "Uber Eats",
+  "amount": 14.44,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0024",
+  "date": "2026-08-08",
+  "time": "22:24",
+  "merchant": "Albert's Schloss",
+  "amount": 43.2,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0025",
+  "date": "2026-08-09",
+  "time": "04:02",
+  "merchant": "Spotify",
+  "amount": 11.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "music",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0026",
+  "date": "2026-08-10",
+  "time": "07:14",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0027",
+  "date": "2026-08-10",
+  "time": "08:00",
+  "merchant": "United Utilities",
+  "amount": 34.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Utilities",
+  "tags": [
+   "water"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0028",
+  "date": "2026-08-11",
+  "time": "13:29",
+  "merchant": "Pret A Manger",
+  "amount": 3.52,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0029",
+  "date": "2026-08-11",
+  "time": "19:38",
+  "merchant": "Deliveroo",
+  "amount": 16.1,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0030",
+  "date": "2026-08-11",
+  "time": "19:44",
+  "merchant": "Co-op Northern Quarter",
+  "amount": 22.06,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0031",
+  "date": "2026-08-12",
+  "time": "08:00",
+  "merchant": "Virgin Media",
+  "amount": 38.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Phone & Internet",
+  "tags": [
+   "broadband"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0032",
+  "date": "2026-08-12",
+  "time": "23:10",
+  "merchant": "Just Eat",
+  "amount": 28.97,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0033",
+  "date": "2026-08-13",
+  "time": "08:41",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 5.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0034",
+  "date": "2026-08-14",
+  "time": "00:08",
+  "merchant": "Uber",
+  "amount": 15.39,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "taxi",
+   "late-night"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0035",
+  "date": "2026-08-14",
+  "time": "02:40",
+  "merchant": "Amazon Prime",
+  "amount": 8.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "amazon",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0036",
+  "date": "2026-08-14",
+  "time": "08:41",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 5.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0037",
+  "date": "2026-08-14",
+  "time": "17:02",
+  "merchant": "Aldi Ardwick",
+  "amount": 16.42,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0038",
+  "date": "2026-08-14",
+  "time": "20:33",
+  "merchant": "Nando's Printworks",
+  "amount": 31.68,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "dinner"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0039",
+  "date": "2026-08-14",
+  "time": "21:54",
+  "merchant": "Night & Day Cafe",
+  "amount": 46.9,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0040",
+  "date": "2026-08-15",
+  "time": "01:59",
+  "merchant": "Uber",
+  "amount": 14.14,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "taxi",
+   "late-night"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0041",
+  "date": "2026-08-15",
+  "time": "08:00",
+  "merchant": "Vodafone",
+  "amount": 22.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Phone & Internet",
+  "tags": [
+   "mobile"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0042",
+  "date": "2026-08-15",
+  "time": "16:17",
+  "merchant": "Northern Rail",
+  "amount": 18.25,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "train"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0043",
+  "date": "2026-08-15",
+  "time": "18:13",
+  "merchant": "Nando's Printworks",
+  "amount": 20.6,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "dinner"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0044",
+  "date": "2026-08-15",
+  "time": "21:42",
+  "merchant": "The Moon Under Water (Wetherspoon)",
+  "amount": 18.62,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0045",
+  "date": "2026-08-16",
+  "time": "14:41",
+  "merchant": "Northern Rail",
+  "amount": 15.83,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "train"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0046",
+  "date": "2026-08-16",
+  "time": "23:08",
+  "merchant": "Just Eat",
+  "amount": 20.05,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0047",
+  "date": "2026-08-17",
+  "time": "07:17",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 5.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0048",
+  "date": "2026-08-17",
+  "time": "13:35",
+  "merchant": "ASOS",
+  "amount": 20.77,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Online",
+  "tags": [
+   "online"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0049",
+  "date": "2026-08-18",
+  "time": "07:31",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0050",
+  "date": "2026-08-18",
+  "time": "12:04",
+  "merchant": "Leon Piccadilly Gardens",
+  "amount": 6.01,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0051",
+  "date": "2026-08-18",
+  "time": "12:37",
+  "merchant": "Superdrug Arndale",
+  "amount": 9.09,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Health & Pharmacy",
+  "tags": [
+   "pharmacy"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0052",
+  "date": "2026-08-18",
+  "time": "19:29",
+  "merchant": "Tesco Express Ancoats",
+  "amount": 14.96,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0053",
+  "date": "2026-08-19",
+  "time": "07:48",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0054",
+  "date": "2026-08-19",
+  "time": "12:10",
+  "merchant": "Leon Piccadilly Gardens",
+  "amount": 5.92,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0055",
+  "date": "2026-08-20",
+  "time": "01:11",
+  "merchant": "Disney+",
+  "amount": 8.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "streaming",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0056",
+  "date": "2026-08-20",
+  "time": "08:40",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0057",
+  "date": "2026-08-20",
+  "time": "14:17",
+  "merchant": "Northern Rail",
+  "amount": 16.62,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "train"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0058",
+  "date": "2026-08-20",
+  "time": "21:24",
+  "merchant": "Tesco Express Ancoats - Wine & Beer",
+  "amount": 12.04,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "off-licence",
+   "wine",
+   "beer",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0059",
+  "date": "2026-08-21",
+  "time": "08:48",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0060",
+  "date": "2026-08-21",
+  "time": "12:21",
+  "merchant": "Leon Piccadilly Gardens",
+  "amount": 9.41,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0061",
+  "date": "2026-08-21",
+  "time": "20:35",
+  "merchant": "Aldi Ardwick",
+  "amount": 24.05,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0062",
+  "date": "2026-08-21",
+  "time": "20:39",
+  "merchant": "Deliveroo",
+  "amount": 19.75,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0063",
+  "date": "2026-08-21",
+  "time": "23:55",
+  "merchant": "The Moon Under Water (Wetherspoon)",
+  "amount": 44.63,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0064",
+  "date": "2026-08-22",
+  "time": "05:30",
+  "merchant": "Audible",
+  "amount": 7.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "audiobooks",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0065",
+  "date": "2026-08-22",
+  "time": "19:25",
+  "merchant": "Port Street Beer House",
+  "amount": 30.43,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0066",
+  "date": "2026-08-22",
+  "time": "23:11",
+  "merchant": "Uber",
+  "amount": 18.77,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "taxi",
+   "late-night"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0067",
+  "date": "2026-08-23",
+  "time": "15:22",
+  "merchant": "Boots Piccadilly",
+  "amount": 15.24,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Health & Pharmacy",
+  "tags": [
+   "pharmacy"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0068",
+  "date": "2026-08-23",
+  "time": "20:19",
+  "merchant": "Tesco Express Ancoats",
+  "amount": 52.46,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0069",
+  "date": "2026-08-23",
+  "time": "20:24",
+  "merchant": "Just Eat",
+  "amount": 15.5,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0070",
+  "date": "2026-08-23",
+  "time": "21:47",
+  "merchant": "Ticketmaster - Co-op Live",
+  "amount": 68.5,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Entertainment",
+  "tags": [
+   "concert",
+   "tickets"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0071",
+  "date": "2026-08-24",
+  "time": "08:55",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 4.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0072",
+  "date": "2026-08-25",
+  "time": "07:36",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0073",
+  "date": "2026-08-25",
+  "time": "19:58",
+  "merchant": "Sainsbury's Local Piccadilly",
+  "amount": 9.98,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0074",
+  "date": "2026-08-26",
+  "time": "07:49",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 5.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0075",
+  "date": "2026-08-26",
+  "time": "12:33",
+  "merchant": "Leon Piccadilly Gardens",
+  "amount": 5.07,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0076",
+  "date": "2026-08-28",
+  "time": "00:01",
+  "merchant": "Northwind Logistics Ltd - Salary",
+  "amount": 2850.0,
+  "currency": "GBP",
+  "direction": "credit",
+  "category": "Income",
+  "tags": [
+   "salary"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0077",
+  "date": "2026-08-28",
+  "time": "07:47",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 5.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0078",
+  "date": "2026-08-28",
+  "time": "20:14",
+  "merchant": "Aldi Ardwick",
+  "amount": 12.58,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0079",
+  "date": "2026-08-28",
+  "time": "21:35",
+  "merchant": "Uber Eats",
+  "amount": 26.43,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0080",
+  "date": "2026-08-29",
+  "time": "09:00",
+  "merchant": "Monzo Savings Pot",
+  "amount": 50.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Savings Transfer",
+  "tags": [
+   "savings"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0081",
+  "date": "2026-08-29",
+  "time": "19:25",
+  "merchant": "Port Street Beer House",
+  "amount": 14.53,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0082",
+  "date": "2026-08-29",
+  "time": "23:06",
+  "merchant": "Uber",
+  "amount": 10.35,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "taxi",
+   "late-night"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0083",
+  "date": "2026-08-30",
+  "time": "20:34",
+  "merchant": "Co-op Northern Quarter",
+  "amount": 59.91,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0084",
+  "date": "2026-08-30",
+  "time": "20:45",
+  "merchant": "Nando's Printworks",
+  "amount": 18.78,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "dinner"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0085",
+  "date": "2026-08-30",
+  "time": "22:33",
+  "merchant": "Just Eat",
+  "amount": 32.95,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0086",
+  "date": "2026-08-31",
+  "time": "07:26",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 4.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0087",
+  "date": "2026-09-01",
+  "time": "06:10",
+  "merchant": "Ancoats Lettings Ltd",
+  "amount": 850.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Rent",
+  "tags": [
+   "rent",
+   "standing-order"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0088",
+  "date": "2026-09-01",
+  "time": "06:12",
+  "merchant": "Manchester City Council",
+  "amount": 118.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Council Tax",
+  "tags": [
+   "council tax",
+   "direct-debit"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0089",
+  "date": "2026-09-01",
+  "time": "06:20",
+  "merchant": "PureGym Manchester",
+  "amount": 24.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Fitness",
+  "tags": [
+   "gym",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0090",
+  "date": "2026-09-01",
+  "time": "08:06",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0091",
+  "date": "2026-09-01",
+  "time": "12:46",
+  "merchant": "Leon Piccadilly Gardens",
+  "amount": 7.43,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0092",
+  "date": "2026-09-01",
+  "time": "20:22",
+  "merchant": "Aldi Ardwick",
+  "amount": 12.28,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0093",
+  "date": "2026-09-01",
+  "time": "22:50",
+  "merchant": "Amazon Marketplace",
+  "amount": 42.64,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Online",
+  "tags": [
+   "online",
+   "late-night"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0094",
+  "date": "2026-09-02",
+  "time": "07:00",
+  "merchant": "Barclaycard Repayment",
+  "amount": 120.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Debt Repayment",
+  "tags": [
+   "credit card",
+   "debt"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0095",
+  "date": "2026-09-02",
+  "time": "07:25",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0096",
+  "date": "2026-09-02",
+  "time": "15:32",
+  "merchant": "Zara Arndale",
+  "amount": 16.26,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Clothing",
+  "tags": [
+   "clothes"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0097",
+  "date": "2026-09-02",
+  "time": "19:32",
+  "merchant": "Deliveroo",
+  "amount": 24.62,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0098",
+  "date": "2026-09-02",
+  "time": "19:43",
+  "merchant": "ASOS",
+  "amount": 28.28,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Online",
+  "tags": [
+   "online"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0099",
+  "date": "2026-09-03",
+  "time": "03:14",
+  "merchant": "Netflix",
+  "amount": 12.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "streaming",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0100",
+  "date": "2026-09-03",
+  "time": "13:27",
+  "merchant": "Leon Piccadilly Gardens",
+  "amount": 8.01,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0101",
+  "date": "2026-09-03",
+  "time": "14:15",
+  "merchant": "Amazon Marketplace",
+  "amount": 50.33,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Online",
+  "tags": [
+   "online"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0102",
+  "date": "2026-09-03",
+  "time": "19:28",
+  "merchant": "Uber Eats",
+  "amount": 27.26,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0103",
+  "date": "2026-09-04",
+  "time": "08:52",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 4.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0104",
+  "date": "2026-09-04",
+  "time": "17:01",
+  "merchant": "Aldi Ardwick",
+  "amount": 14.09,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0105",
+  "date": "2026-09-05",
+  "time": "08:00",
+  "merchant": "Octopus Energy",
+  "amount": 72.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Utilities",
+  "tags": [
+   "energy",
+   "gas",
+   "electric"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0106",
+  "date": "2026-09-05",
+  "time": "18:12",
+  "merchant": "Mowgli Spinningfields",
+  "amount": 18.73,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "dinner"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0107",
+  "date": "2026-09-05",
+  "time": "21:34",
+  "merchant": "Port Street Beer House",
+  "amount": 30.98,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0108",
+  "date": "2026-09-06",
+  "time": "01:01",
+  "merchant": "Shein",
+  "amount": 18.26,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Online",
+  "tags": [
+   "online",
+   "late-night"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0109",
+  "date": "2026-09-07",
+  "time": "08:23",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0110",
+  "date": "2026-09-08",
+  "time": "12:18",
+  "merchant": "Greggs",
+  "amount": 8.1,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0111",
+  "date": "2026-09-08",
+  "time": "17:23",
+  "merchant": "Boots Piccadilly",
+  "amount": 13.56,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Health & Pharmacy",
+  "tags": [
+   "pharmacy"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0112",
+  "date": "2026-09-08",
+  "time": "17:41",
+  "merchant": "Tesco Express Ancoats",
+  "amount": 14.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0113",
+  "date": "2026-09-08",
+  "time": "22:56",
+  "merchant": "Uber Eats",
+  "amount": 22.13,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0114",
+  "date": "2026-09-09",
+  "time": "04:02",
+  "merchant": "Spotify",
+  "amount": 11.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "music",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0115",
+  "date": "2026-09-09",
+  "time": "08:02",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0116",
+  "date": "2026-09-10",
+  "time": "07:40",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 4.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0117",
+  "date": "2026-09-10",
+  "time": "08:00",
+  "merchant": "United Utilities",
+  "amount": 34.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Utilities",
+  "tags": [
+   "water"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0118",
+  "date": "2026-09-10",
+  "time": "14:45",
+  "merchant": "Northern Rail",
+  "amount": 18.88,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "train"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0119",
+  "date": "2026-09-11",
+  "time": "07:06",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0120",
+  "date": "2026-09-11",
+  "time": "18:13",
+  "merchant": "Sainsbury's Local Piccadilly",
+  "amount": 23.71,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0121",
+  "date": "2026-09-11",
+  "time": "18:29",
+  "merchant": "Nando's Printworks",
+  "amount": 24.36,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "dinner"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0122",
+  "date": "2026-09-11",
+  "time": "19:24",
+  "merchant": "Steam Games",
+  "amount": 13.51,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Entertainment",
+  "tags": [
+   "games"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0123",
+  "date": "2026-09-11",
+  "time": "21:24",
+  "merchant": "Deliveroo",
+  "amount": 22.02,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0124",
+  "date": "2026-09-12",
+  "time": "08:00",
+  "merchant": "Virgin Media",
+  "amount": 38.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Phone & Internet",
+  "tags": [
+   "broadband"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0125",
+  "date": "2026-09-12",
+  "time": "10:05",
+  "merchant": "Trainline - Manchester to London",
+  "amount": 48.2,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Travel",
+  "tags": [
+   "train",
+   "trip"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0126",
+  "date": "2026-09-12",
+  "time": "17:07",
+  "merchant": "Boots Piccadilly",
+  "amount": 9.5,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Health & Pharmacy",
+  "tags": [
+   "pharmacy"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0127",
+  "date": "2026-09-13",
+  "time": "09:34",
+  "merchant": "Northern Rail",
+  "amount": 11.24,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "train"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0128",
+  "date": "2026-09-13",
+  "time": "11:30",
+  "merchant": "Booking.com - London hotel",
+  "amount": 118.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Travel",
+  "tags": [
+   "hotel",
+   "trip"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0129",
+  "date": "2026-09-13",
+  "time": "17:28",
+  "merchant": "Aldi Ardwick",
+  "amount": 42.25,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0130",
+  "date": "2026-09-13",
+  "time": "18:57",
+  "merchant": "Bargain Booze",
+  "amount": 20.69,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "off-licence",
+   "wine",
+   "beer",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0131",
+  "date": "2026-09-14",
+  "time": "02:40",
+  "merchant": "Amazon Prime",
+  "amount": 8.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "amazon",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0132",
+  "date": "2026-09-14",
+  "time": "07:18",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0133",
+  "date": "2026-09-15",
+  "time": "08:00",
+  "merchant": "Vodafone",
+  "amount": 22.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Phone & Internet",
+  "tags": [
+   "mobile"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0134",
+  "date": "2026-09-15",
+  "time": "08:02",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 4.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0135",
+  "date": "2026-09-15",
+  "time": "17:38",
+  "merchant": "Co-op Northern Quarter",
+  "amount": 7.91,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0136",
+  "date": "2026-09-16",
+  "time": "21:49",
+  "merchant": "ODEON Great Northern",
+  "amount": 21.34,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Entertainment",
+  "tags": [
+   "cinema"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0137",
+  "date": "2026-09-16",
+  "time": "21:59",
+  "merchant": "Uber Eats",
+  "amount": 32.58,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0138",
+  "date": "2026-09-17",
+  "time": "07:38",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0139",
+  "date": "2026-09-17",
+  "time": "13:10",
+  "merchant": "Leon Piccadilly Gardens",
+  "amount": 4.45,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0140",
+  "date": "2026-09-18",
+  "time": "07:50",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0141",
+  "date": "2026-09-18",
+  "time": "17:14",
+  "merchant": "Co-op Northern Quarter",
+  "amount": 9.52,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0142",
+  "date": "2026-09-19",
+  "time": "22:39",
+  "merchant": "Amazon Marketplace",
+  "amount": 26.16,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Online",
+  "tags": [
+   "online",
+   "late-night"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0143",
+  "date": "2026-09-20",
+  "time": "01:11",
+  "merchant": "Disney+",
+  "amount": 8.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "streaming",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0144",
+  "date": "2026-09-21",
+  "time": "07:30",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0145",
+  "date": "2026-09-21",
+  "time": "21:54",
+  "merchant": "Uber Eats",
+  "amount": 30.35,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0146",
+  "date": "2026-09-22",
+  "time": "05:30",
+  "merchant": "Audible",
+  "amount": 7.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "audiobooks",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0147",
+  "date": "2026-09-22",
+  "time": "08:55",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 5.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0148",
+  "date": "2026-09-22",
+  "time": "13:38",
+  "merchant": "Leon Piccadilly Gardens",
+  "amount": 6.58,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0149",
+  "date": "2026-09-22",
+  "time": "17:12",
+  "merchant": "Aldi Ardwick",
+  "amount": 17.8,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0150",
+  "date": "2026-09-22",
+  "time": "20:03",
+  "merchant": "Bargain Booze",
+  "amount": 22.6,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "off-licence",
+   "wine",
+   "beer",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0151",
+  "date": "2026-09-23",
+  "time": "08:25",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 5.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0152",
+  "date": "2026-09-23",
+  "time": "17:49",
+  "merchant": "Superdrug Arndale",
+  "amount": 11.52,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Health & Pharmacy",
+  "tags": [
+   "pharmacy"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0153",
+  "date": "2026-09-24",
+  "time": "13:11",
+  "merchant": "Greggs",
+  "amount": 9.49,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0154",
+  "date": "2026-09-24",
+  "time": "15:36",
+  "merchant": "Steam Games",
+  "amount": 16.57,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Entertainment",
+  "tags": [
+   "cinema"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0155",
+  "date": "2026-09-25",
+  "time": "08:38",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 4.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0156",
+  "date": "2026-09-25",
+  "time": "17:00",
+  "merchant": "Tesco Express Ancoats",
+  "amount": 11.73,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0157",
+  "date": "2026-09-25",
+  "time": "17:50",
+  "merchant": "JD Sports Arndale",
+  "amount": 40.36,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Clothing",
+  "tags": [
+   "clothes"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0158",
+  "date": "2026-09-25",
+  "time": "18:00",
+  "merchant": "ATM Withdrawal - Piccadilly",
+  "amount": 40.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Cash Withdrawal",
+  "tags": [
+   "cash",
+   "atm"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0159",
+  "date": "2026-09-26",
+  "time": "22:44",
+  "merchant": "Port Street Beer House",
+  "amount": 22.75,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0160",
+  "date": "2026-09-27",
+  "time": "20:49",
+  "merchant": "Bargain Booze",
+  "amount": 10.71,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "off-licence",
+   "wine",
+   "beer",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0161",
+  "date": "2026-09-28",
+  "time": "00:01",
+  "merchant": "Northwind Logistics Ltd - Salary",
+  "amount": 2850.0,
+  "currency": "GBP",
+  "direction": "credit",
+  "category": "Income",
+  "tags": [
+   "salary"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0162",
+  "date": "2026-09-28",
+  "time": "20:54",
+  "merchant": "Steam Games",
+  "amount": 19.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Entertainment",
+  "tags": [
+   "games"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0163",
+  "date": "2026-09-29",
+  "time": "07:11",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0164",
+  "date": "2026-09-29",
+  "time": "09:00",
+  "merchant": "Monzo Savings Pot",
+  "amount": 20.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Savings Transfer",
+  "tags": [
+   "savings"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0165",
+  "date": "2026-09-29",
+  "time": "17:05",
+  "merchant": "Sainsbury's Local Piccadilly",
+  "amount": 8.53,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0166",
+  "date": "2026-09-30",
+  "time": "08:32",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 5.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0167",
+  "date": "2026-09-30",
+  "time": "13:06",
+  "merchant": "Leon Piccadilly Gardens",
+  "amount": 9.49,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0168",
+  "date": "2026-10-01",
+  "time": "06:10",
+  "merchant": "Ancoats Lettings Ltd",
+  "amount": 850.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Rent",
+  "tags": [
+   "rent",
+   "standing-order"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0169",
+  "date": "2026-10-01",
+  "time": "06:12",
+  "merchant": "Manchester City Council",
+  "amount": 118.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Council Tax",
+  "tags": [
+   "council tax",
+   "direct-debit"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0170",
+  "date": "2026-10-01",
+  "time": "06:20",
+  "merchant": "PureGym Manchester",
+  "amount": 24.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Fitness",
+  "tags": [
+   "gym",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0171",
+  "date": "2026-10-01",
+  "time": "08:40",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 5.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0172",
+  "date": "2026-10-02",
+  "time": "07:00",
+  "merchant": "Barclaycard Repayment",
+  "amount": 120.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Debt Repayment",
+  "tags": [
+   "credit card",
+   "debt"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0173",
+  "date": "2026-10-02",
+  "time": "08:22",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0174",
+  "date": "2026-10-02",
+  "time": "18:43",
+  "merchant": "Sainsbury's Local Piccadilly",
+  "amount": 22.51,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0175",
+  "date": "2026-10-02",
+  "time": "23:39",
+  "merchant": "Amazon Marketplace",
+  "amount": 50.47,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Online",
+  "tags": [
+   "online",
+   "late-night"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0176",
+  "date": "2026-10-03",
+  "time": "03:14",
+  "merchant": "Netflix",
+  "amount": 12.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "streaming",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0177",
+  "date": "2026-10-03",
+  "time": "23:44",
+  "merchant": "Cloudwater Tap Room",
+  "amount": 31.25,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0178",
+  "date": "2026-10-04",
+  "time": "18:08",
+  "merchant": "Sainsbury's Local Piccadilly",
+  "amount": 68.67,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0179",
+  "date": "2026-10-05",
+  "time": "08:00",
+  "merchant": "Octopus Energy",
+  "amount": 96.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Utilities",
+  "tags": [
+   "energy",
+   "gas",
+   "electric"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0180",
+  "date": "2026-10-05",
+  "time": "08:02",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0181",
+  "date": "2026-10-05",
+  "time": "11:05",
+  "merchant": "Northern Rail",
+  "amount": 21.69,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "train"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0182",
+  "date": "2026-10-06",
+  "time": "07:25",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 4.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0183",
+  "date": "2026-10-06",
+  "time": "20:11",
+  "merchant": "Co-op Northern Quarter",
+  "amount": 10.78,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0184",
+  "date": "2026-10-07",
+  "time": "12:28",
+  "merchant": "Northern Rail",
+  "amount": 20.39,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "train"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0185",
+  "date": "2026-10-07",
+  "time": "19:32",
+  "merchant": "ODEON Great Northern",
+  "amount": 21.74,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Entertainment",
+  "tags": [
+   "games"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0186",
+  "date": "2026-10-08",
+  "time": "07:40",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0187",
+  "date": "2026-10-09",
+  "time": "04:02",
+  "merchant": "Spotify",
+  "amount": 11.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "music",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0188",
+  "date": "2026-10-09",
+  "time": "12:41",
+  "merchant": "Greggs",
+  "amount": 5.02,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0189",
+  "date": "2026-10-09",
+  "time": "18:59",
+  "merchant": "Sainsbury's Local Piccadilly",
+  "amount": 15.61,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0190",
+  "date": "2026-10-10",
+  "time": "00:44",
+  "merchant": "Uber",
+  "amount": 9.56,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "taxi",
+   "late-night"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0191",
+  "date": "2026-10-10",
+  "time": "08:00",
+  "merchant": "United Utilities",
+  "amount": 34.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Utilities",
+  "tags": [
+   "water"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0192",
+  "date": "2026-10-10",
+  "time": "19:24",
+  "merchant": "Deliveroo",
+  "amount": 24.13,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0193",
+  "date": "2026-10-10",
+  "time": "22:39",
+  "merchant": "Cloudwater Tap Room",
+  "amount": 37.22,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0194",
+  "date": "2026-10-11",
+  "time": "18:39",
+  "merchant": "Tesco Express Ancoats",
+  "amount": 63.11,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0195",
+  "date": "2026-10-12",
+  "time": "07:47",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0196",
+  "date": "2026-10-12",
+  "time": "08:00",
+  "merchant": "Virgin Media",
+  "amount": 38.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Phone & Internet",
+  "tags": [
+   "broadband"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0197",
+  "date": "2026-10-13",
+  "time": "08:28",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0198",
+  "date": "2026-10-13",
+  "time": "19:53",
+  "merchant": "Co-op Northern Quarter",
+  "amount": 23.34,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0199",
+  "date": "2026-10-14",
+  "time": "02:40",
+  "merchant": "Amazon Prime",
+  "amount": 8.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "amazon",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0200",
+  "date": "2026-10-14",
+  "time": "08:56",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 5.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0201",
+  "date": "2026-10-14",
+  "time": "15:01",
+  "merchant": "Amazon Marketplace",
+  "amount": 51.46,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Online",
+  "tags": [
+   "online"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0202",
+  "date": "2026-10-15",
+  "time": "07:33",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0203",
+  "date": "2026-10-15",
+  "time": "08:00",
+  "merchant": "Vodafone",
+  "amount": 22.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Phone & Internet",
+  "tags": [
+   "mobile"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0204",
+  "date": "2026-10-15",
+  "time": "13:08",
+  "merchant": "Greggs",
+  "amount": 4.66,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0205",
+  "date": "2026-10-15",
+  "time": "19:34",
+  "merchant": "ATM Withdrawal - Piccadilly",
+  "amount": 40.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Cash Withdrawal",
+  "tags": [
+   "cash",
+   "atm"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0206",
+  "date": "2026-10-16",
+  "time": "07:04",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0207",
+  "date": "2026-10-16",
+  "time": "17:53",
+  "merchant": "Tesco Express Ancoats",
+  "amount": 24.82,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0208",
+  "date": "2026-10-16",
+  "time": "19:45",
+  "merchant": "Just Eat",
+  "amount": 23.23,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0209",
+  "date": "2026-10-16",
+  "time": "21:57",
+  "merchant": "The Moon Under Water (Wetherspoon)",
+  "amount": 14.14,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0210",
+  "date": "2026-10-17",
+  "time": "00:01",
+  "merchant": "Amazon",
+  "amount": 39.19,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Online",
+  "tags": [
+   "online",
+   "late-night"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0211",
+  "date": "2026-10-17",
+  "time": "23:46",
+  "merchant": "The Moon Under Water (Wetherspoon)",
+  "amount": 41.96,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0212",
+  "date": "2026-10-18",
+  "time": "16:27",
+  "merchant": "JD Sports Arndale",
+  "amount": 15.52,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Clothing",
+  "tags": [
+   "clothes"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0213",
+  "date": "2026-10-18",
+  "time": "20:52",
+  "merchant": "Nando's Printworks",
+  "amount": 37.71,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "dinner"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0214",
+  "date": "2026-10-19",
+  "time": "07:59",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 5.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0215",
+  "date": "2026-10-19",
+  "time": "12:02",
+  "merchant": "Leon Piccadilly Gardens",
+  "amount": 5.78,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0216",
+  "date": "2026-10-19",
+  "time": "14:47",
+  "merchant": "Zara Arndale",
+  "amount": 47.42,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Clothing",
+  "tags": [
+   "clothes"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0217",
+  "date": "2026-10-20",
+  "time": "01:11",
+  "merchant": "Disney+",
+  "amount": 8.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "streaming",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0218",
+  "date": "2026-10-20",
+  "time": "07:40",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 4.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0219",
+  "date": "2026-10-20",
+  "time": "17:47",
+  "merchant": "Superdrug Arndale",
+  "amount": 11.3,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Health & Pharmacy",
+  "tags": [
+   "pharmacy"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0220",
+  "date": "2026-10-20",
+  "time": "20:37",
+  "merchant": "Sainsbury's Local Piccadilly",
+  "amount": 22.62,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0221",
+  "date": "2026-10-21",
+  "time": "08:49",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0222",
+  "date": "2026-10-22",
+  "time": "05:30",
+  "merchant": "Audible",
+  "amount": 7.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "audiobooks",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0223",
+  "date": "2026-10-22",
+  "time": "07:09",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0224",
+  "date": "2026-10-22",
+  "time": "12:27",
+  "merchant": "Pret A Manger",
+  "amount": 6.06,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0225",
+  "date": "2026-10-22",
+  "time": "14:03",
+  "merchant": "Zara Arndale",
+  "amount": 52.96,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Clothing",
+  "tags": [
+   "clothes"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0226",
+  "date": "2026-10-23",
+  "time": "01:46",
+  "merchant": "Uber",
+  "amount": 15.98,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "taxi",
+   "late-night"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0227",
+  "date": "2026-10-23",
+  "time": "07:40",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0228",
+  "date": "2026-10-23",
+  "time": "12:19",
+  "merchant": "Pret A Manger",
+  "amount": 8.85,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0229",
+  "date": "2026-10-23",
+  "time": "18:14",
+  "merchant": "Aldi Ardwick",
+  "amount": 21.02,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0230",
+  "date": "2026-10-23",
+  "time": "19:22",
+  "merchant": "Mowgli Spinningfields",
+  "amount": 32.62,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "dinner"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0231",
+  "date": "2026-10-23",
+  "time": "20:57",
+  "merchant": "Deliveroo",
+  "amount": 16.94,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0232",
+  "date": "2026-10-23",
+  "time": "21:01",
+  "merchant": "Cloudwater Tap Room",
+  "amount": 43.25,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0233",
+  "date": "2026-10-24",
+  "time": "22:42",
+  "merchant": "Port Street Beer House",
+  "amount": 31.78,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0234",
+  "date": "2026-10-25",
+  "time": "20:06",
+  "merchant": "Mowgli Spinningfields",
+  "amount": 20.47,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "dinner"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0235",
+  "date": "2026-10-25",
+  "time": "20:23",
+  "merchant": "Tesco Express Ancoats",
+  "amount": 68.83,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0236",
+  "date": "2026-10-26",
+  "time": "08:45",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0237",
+  "date": "2026-10-26",
+  "time": "12:44",
+  "merchant": "Pret A Manger",
+  "amount": 5.04,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0238",
+  "date": "2026-10-27",
+  "time": "08:02",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 5.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0239",
+  "date": "2026-10-27",
+  "time": "12:10",
+  "merchant": "Greggs",
+  "amount": 3.21,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0240",
+  "date": "2026-10-27",
+  "time": "18:12",
+  "merchant": "Sainsbury's Local Piccadilly",
+  "amount": 19.85,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0241",
+  "date": "2026-10-28",
+  "time": "00:01",
+  "merchant": "Northwind Logistics Ltd - Salary",
+  "amount": 2850.0,
+  "currency": "GBP",
+  "direction": "credit",
+  "category": "Income",
+  "tags": [
+   "salary"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0242",
+  "date": "2026-10-28",
+  "time": "12:44",
+  "merchant": "Greggs",
+  "amount": 8.35,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0243",
+  "date": "2026-10-28",
+  "time": "21:08",
+  "merchant": "Majestic Wine",
+  "amount": 18.54,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "off-licence",
+   "wine",
+   "beer",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0244",
+  "date": "2026-10-28",
+  "time": "23:44",
+  "merchant": "Amazon",
+  "amount": 40.78,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Shopping - Online",
+  "tags": [
+   "online",
+   "late-night"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0245",
+  "date": "2026-10-29",
+  "time": "09:00",
+  "merchant": "Monzo Savings Pot",
+  "amount": 50.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Savings Transfer",
+  "tags": [
+   "savings"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0246",
+  "date": "2026-10-29",
+  "time": "20:00",
+  "merchant": "Deliveroo",
+  "amount": 15.07,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0247",
+  "date": "2026-10-30",
+  "time": "18:56",
+  "merchant": "Sainsbury's Local Piccadilly",
+  "amount": 20.77,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0248",
+  "date": "2026-10-30",
+  "time": "20:18",
+  "merchant": "Rudy's Pizza Ancoats",
+  "amount": 36.05,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "dinner"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0249",
+  "date": "2026-10-30",
+  "time": "22:35",
+  "merchant": "Just Eat",
+  "amount": 20.56,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0250",
+  "date": "2026-10-30",
+  "time": "22:37",
+  "merchant": "ODEON Great Northern",
+  "amount": 23.26,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Entertainment",
+  "tags": [
+   "cinema"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0251",
+  "date": "2026-10-30",
+  "time": "23:39",
+  "merchant": "Cloudwater Tap Room",
+  "amount": 25.94,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "pub",
+   "bar",
+   "nightlife",
+   "drinks"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0252",
+  "date": "2026-10-31",
+  "time": "18:42",
+  "merchant": "Rudy's Pizza Ancoats",
+  "amount": 17.83,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "dinner"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0253",
+  "date": "2026-10-31",
+  "time": "22:15",
+  "merchant": "Albert Hall Halloween - tickets & bar",
+  "amount": 54.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Alcohol & Nightlife",
+  "tags": [
+   "alcohol",
+   "nightlife",
+   "halloween"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0254",
+  "date": "2026-11-01",
+  "time": "06:10",
+  "merchant": "Ancoats Lettings Ltd",
+  "amount": 850.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Rent",
+  "tags": [
+   "rent",
+   "standing-order"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0255",
+  "date": "2026-11-01",
+  "time": "06:12",
+  "merchant": "Manchester City Council",
+  "amount": 118.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Council Tax",
+  "tags": [
+   "council tax",
+   "direct-debit"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0256",
+  "date": "2026-11-01",
+  "time": "06:20",
+  "merchant": "PureGym Manchester",
+  "amount": 24.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Fitness",
+  "tags": [
+   "gym",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0257",
+  "date": "2026-11-01",
+  "time": "18:59",
+  "merchant": "Mowgli Spinningfields",
+  "amount": 17.44,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "dinner"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0258",
+  "date": "2026-11-02",
+  "time": "07:00",
+  "merchant": "Barclaycard Repayment",
+  "amount": 120.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Debt Repayment",
+  "tags": [
+   "credit card",
+   "debt"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0259",
+  "date": "2026-11-02",
+  "time": "07:46",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0260",
+  "date": "2026-11-02",
+  "time": "11:51",
+  "merchant": "Boots Piccadilly",
+  "amount": 12.49,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Health & Pharmacy",
+  "tags": [
+   "pharmacy"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0261",
+  "date": "2026-11-02",
+  "time": "13:33",
+  "merchant": "Pret A Manger",
+  "amount": 5.09,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0262",
+  "date": "2026-11-03",
+  "time": "03:14",
+  "merchant": "Netflix",
+  "amount": 12.99,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Subscriptions",
+  "tags": [
+   "streaming",
+   "subscription"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0263",
+  "date": "2026-11-03",
+  "time": "18:37",
+  "merchant": "Co-op Northern Quarter",
+  "amount": 22.44,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0264",
+  "date": "2026-11-03",
+  "time": "22:30",
+  "merchant": "Just Eat",
+  "amount": 18.73,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0265",
+  "date": "2026-11-04",
+  "time": "07:54",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 5.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0266",
+  "date": "2026-11-05",
+  "time": "07:41",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0267",
+  "date": "2026-11-05",
+  "time": "08:00",
+  "merchant": "Octopus Energy",
+  "amount": 96.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Utilities",
+  "tags": [
+   "energy",
+   "gas",
+   "electric"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0268",
+  "date": "2026-11-05",
+  "time": "12:30",
+  "merchant": "Leon Piccadilly Gardens",
+  "amount": 5.78,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Eating Out",
+  "tags": [
+   "lunch"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0269",
+  "date": "2026-11-06",
+  "time": "08:07",
+  "merchant": "Bee Network - Metrolink",
+  "amount": 2.0,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Transport",
+  "tags": [
+   "tram",
+   "commute"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0270",
+  "date": "2026-11-06",
+  "time": "17:03",
+  "merchant": "Tesco Express Ancoats",
+  "amount": 18.47,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Groceries",
+  "tags": [
+   "supermarket"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ },
+ {
+  "id": "txn_0271",
+  "date": "2026-11-06",
+  "time": "19:31",
+  "merchant": "Just Eat",
+  "amount": 31.13,
+  "currency": "GBP",
+  "direction": "debit",
+  "category": "Takeaway & Delivery",
+  "tags": [
+   "takeaway",
+   "delivery",
+   "food"
+  ],
+  "source": "seed",
+  "tagged": false,
+  "is_flagged": false,
+  "highlight_reason": null
+ }
+]

@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "description": "Static Transition Matrix: step-by-step micro-goals that move a user from their assessed Capacity x Tendency cell to their Optimal Baseline. Stage is chosen by weeks since onboarding; weekly limit = tendency.starting_weekly_limit x stage.limit_multiplier.",
+  "week_starts_on": "monday",
+  "tendencies": {
+    "The Comfort-Buyer": {
+      "watch_categories": ["Takeaway & Delivery", "Shopping - Online", "Subscriptions"],
+      "starting_weekly_limit": 90,
+      "habit_swap": "Swap one delivery night a week for a batch-cooked meal, and leave online baskets for 24 hours before buying."
+    },
+    "The Status-Seeker": {
+      "watch_categories": ["Shopping - Clothing", "Eating Out", "Entertainment"],
+      "starting_weekly_limit": 110,
+      "habit_swap": "Before any purchase over £30, ask: would I still buy this if nobody ever saw it?"
+    },
+    "The Experience-Junkie": {
+      "watch_categories": ["Alcohol & Nightlife", "Entertainment", "Travel"],
+      "starting_weekly_limit": 100,
+      "habit_swap": "Pre-load a fixed 'fun budget' onto a separate card for each weekend and leave the main card at home."
+    },
+    "The Panic-Hoarder": {
+      "watch_categories": ["Cash Withdrawal", "Groceries"],
+      "starting_weekly_limit": 120,
+      "habit_swap": "Cap cash withdrawals at £20 and move anything above a one-month buffer into an easy-access savings pot."
+    }
+  },
+  "capacities": {
+    "The Over-Leveraged": {
+      "stages": [
+        {"id": "stop-the-bleed", "name": "Stop the bleed", "weeks": 3, "limit_multiplier": 0.75,
+         "micro_goals": ["List every debt with its APR", "Cancel one subscription you haven't used this month", "Stay under the weekly watch limit 2 weeks in a row"]},
+        {"id": "debt-avalanche", "name": "Debt avalanche", "weeks": 6, "limit_multiplier": 0.7,
+         "micro_goals": ["Pay £25 extra a week to the highest-APR debt", "Keep wants under 25% of income"]},
+        {"id": "first-buffer", "name": "First £500 buffer", "weeks": 8, "limit_multiplier": 0.8,
+         "micro_goals": ["Automate £20 a week into savings", "Reach a £500 emergency buffer"]}
+      ]
+    },
+    "The Scrapper": {
+      "stages": [
+        {"id": "see-it", "name": "See where it goes", "weeks": 2, "limit_multiplier": 1.0,
+         "micro_goals": ["Check NatAware's flagged transactions every Sunday", "Name your top two leak categories"]},
+        {"id": "plug-the-leaks", "name": "Plug the leaks", "weeks": 4, "limit_multiplier": 0.8,
+         "micro_goals": ["Stay under the weekly watch limit", "Move £15 a week into a savings pot the day you're paid"]},
+        {"id": "build-the-buffer", "name": "Build the buffer", "weeks": 8, "limit_multiplier": 0.75,
+         "micro_goals": ["Reach one month of rent as a buffer", "Hit the savings % in your baseline for one full month"]}
+      ]
+    },
+    "The Stabilizer": {
+      "stages": [
+        {"id": "tighten", "name": "Tighten the edges", "weeks": 3, "limit_multiplier": 0.9,
+         "micro_goals": ["Stay under the weekly watch limit", "Review subscriptions"]},
+        {"id": "grow", "name": "Grow the gap", "weeks": 6, "limit_multiplier": 0.85,
+         "micro_goals": ["Raise automated savings by 2% of income", "Build three months of essential costs as a buffer"]}
+      ]
+    },
+    "The Accumulator": {
+      "stages": [
+        {"id": "intentional", "name": "Spend with intent", "weeks": 3, "limit_multiplier": 1.0,
+         "micro_goals": ["Give every 'want' a planned budget line", "Keep the buffer at six months - not twelve"]},
+        {"id": "deploy", "name": "Put money to work", "weeks": 6, "limit_multiplier": 1.0,
+         "micro_goals": ["Move surplus above the buffer into long-term savings", "Book one planned, guilt-free experience a month"]}
+      ]
+    }
+  }
+}

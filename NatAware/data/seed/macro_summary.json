@@ -1,0 +1,67 @@
+{
+  "_note": "SYNTHETIC demo data. Stands in for OpenWeatherMap alerts + NewsAPI results for Manchester. Not real forecasts or news.",
+  "weather_alerts": [
+    {
+      "id": "wx-cold-snap-nov",
+      "kind": "weather",
+      "severity": "high",
+      "headline": "Cold snap forecast for Greater Manchester",
+      "detail": "Overnight lows near -4C expected from 16 Nov for around ten days.",
+      "starts": "2026-11-16",
+      "base_monthly_impact": 38.0,
+      "months": 1,
+      "affects": ["Utilities", "Takeaway & Delivery"],
+      "buffer": "heating"
+    },
+    {
+      "id": "wx-storm-wind",
+      "kind": "transport",
+      "severity": "medium",
+      "headline": "Yellow wind warning - tram and rail disruption likely",
+      "detail": "Strong gusts could disrupt Metrolink and Northern services, pushing people towards taxis.",
+      "starts": "2026-11-12",
+      "base_monthly_impact": 22.0,
+      "months": 1,
+      "affects": ["Transport"],
+      "buffer": "travel"
+    }
+  ],
+  "economic_news": [
+    {
+      "id": "econ-energy-cap-jan",
+      "kind": "energy",
+      "severity": "high",
+      "headline": "Energy price cap set to rise 6% in January",
+      "detail": "The typical household dual-fuel bill is forecast to rise from 1 Jan 2027.",
+      "starts": "2027-01-01",
+      "base_monthly_impact": 72.0,
+      "months": 3,
+      "affects": ["Utilities"],
+      "buffer": "energy bills"
+    },
+    {
+      "id": "econ-council-tax-apr",
+      "kind": "tax",
+      "severity": "medium",
+      "headline": "Manchester council tax rise proposed for April",
+      "detail": "A 4.99% increase is under consultation for the 2027/28 year.",
+      "starts": "2027-04-01",
+      "base_monthly_impact": 70.0,
+      "months": 5,
+      "affects": ["Council Tax"],
+      "buffer": "council tax"
+    },
+    {
+      "id": "econ-food-inflation",
+      "kind": "prices",
+      "severity": "low",
+      "headline": "Food inflation ticks up ahead of Christmas",
+      "detail": "Grocery prices up 3.8% year on year, with delivery fees rising at several platforms.",
+      "starts": "2026-11-01",
+      "base_monthly_impact": 18.0,
+      "months": 1,
+      "affects": ["Groceries", "Takeaway & Delivery"],
+      "buffer": "groceries"
+    }
+  ]
+}

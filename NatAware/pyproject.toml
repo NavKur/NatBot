@@ -1,0 +1,20 @@
+[project]
+name = "nataware"
+version = "0.1.0"
+description = "NatAware - voice-first behavioural finance coach (demo prototype). Agent: NatBot."
+readme = "README.md"
+requires-python = ">=3.11"
+
+[project.scripts]
+nataware = "nataware.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["nataware*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
