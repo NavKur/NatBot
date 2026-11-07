@@ -65,7 +65,7 @@ class CoachSession:
             raise RuntimeError("No profile yet - run onboarding first.")
         dates = sorted(t["date"] for t in store.transactions)
         self.convo = ClaudeConversation(
-            system=coach_system_prompt(profile, dates[0], dates[-1]),
+            system=coach_system_prompt(profile, dates[0], dates[-1], (store.get("account") or {}).get("first_name")),
             tools=TOOL_DEFINITIONS,
             tool_executor=execute_tool,
             max_tokens=1200,
@@ -83,6 +83,8 @@ def save_profile(profile: Profile) -> None:
     """Persist a new profile and re-run the downstream (fake) pipelines that depend on it."""
     from nataware.worker.tasks import refresh_threats, retag_all_transactions
 
-    get_store().set_profile(profile)
+    store = get_store()
+    store.set_profile(profile)
+    store.put("onboarded", True)
     retag_all_transactions.delay()
     refresh_threats.delay()

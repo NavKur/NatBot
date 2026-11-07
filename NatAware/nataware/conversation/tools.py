@@ -122,6 +122,74 @@ TOOL_DEFINITIONS: list[dict[str, Any]] = [
         "description": "The most recent coaching nudges NatAware has sent the user.",
         "input_schema": {"type": "object", "properties": {"limit": {"type": "integer", "default": 5}}},
     },
+    {
+        "name": "get_goals_and_strategies",
+        "description": (
+            "The user's savings goals with progress, how long they'll take on the current path, and recommended "
+            "strategies (each with a £/month value computed from their own spending) and the faster timeline if "
+            "they adopt them. Use for any question about goals, saving faster or 'how do I get to X'."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {"goal_id": {"type": "string", "description": "Optional: only this goal."}},
+        },
+    },
+    {
+        "name": "get_spending_forecast",
+        "description": (
+            "Predicted monthly spending for the rest of this month and the next 4 months, with a likely range "
+            "and the drivers (seasonal patterns from last year, announced price rises). Use for 'what will I "
+            "spend', 'how will December look', 'financial time travel' questions."
+        ),
+        "input_schema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "get_seasonal_outlook",
+        "description": (
+            "Upcoming seasonal costs for this user (e.g. Christmas, heating, cold and flu season): expected "
+            "extra cost from their own history last year plus local news, confidence, and a suggested weekly "
+            "amount to put aside."
+        ),
+        "input_schema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "get_insights",
+        "description": (
+            "What NatBot has noticed right now: unusual spending this month, subscriptions, a cash-flow "
+            "prediction to next payday, and bill changes."
+        ),
+        "input_schema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "set_aside_for_event",
+        "description": "Start (or change) a weekly set-aside towards an upcoming seasonal cost, when the user agrees to it.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "event_id": {"type": "string", "description": "id from get_seasonal_outlook, e.g. 'christmas'."},
+                "weekly": {"type": "number", "exclusiveMinimum": 0, "description": "£ per week."},
+            },
+            "required": ["event_id", "weekly"],
+        },
+    },
+    {
+        "name": "update_goal",
+        "description": (
+            "Add a new savings goal or change an existing one's name or target, when the user tells you about it. "
+            "Pass goal_id to change an existing goal; omit it to add a new one."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "goal_id": {"type": "string"},
+                "name": {"type": "string"},
+                "kind": {"type": "string", "enum": ["house", "emergency", "debt", "travel", "education", "car", "family",
+                                                    "wedding", "retirement", "other"]},
+                "target": {"type": "number", "exclusiveMinimum": 0, "description": "Target amount in £."},
+            },
+            "required": ["name", "target"],
+        },
+    },
 ]
 
 
@@ -242,6 +310,90 @@ def _get_recent_nudges(limit: int = 5) -> dict[str, Any]:
     return {"nudges": list(reversed(nudges))[: max(1, int(limit))]}
 
 
+def _get_goals_and_strategies(goal_id: str | None = None) -> dict[str, Any]:
+    from nataware.insights.goals import goal_plans
+
+    store = get_store()
+    profile = store.get_profile()
+    if profile is None:
+        return {"error": "No profile yet."}
+    plans = goal_plans(profile, store.get("account") or {}, store.transactions, settings.demo_today)
+    if goal_id:
+        plans["goals"] = [g for g in plans["goals"] if g["id"] == goal_id] or plans["goals"]
+    plans["note"] = (
+        "current_path_months uses usual_monthly savings only; plan_months assumes every strategy is adopted. "
+        "The 'lisa' strategy is a 25% government bonus on deposits capped at £83/month; eligibility applies."
+    )
+    return plans
+
+
+def _get_spending_forecast() -> dict[str, Any]:
+    from nataware.insights.forecast import spending_forecast
+    from nataware.threats.macro import build_daily_macro_summary
+
+    store = get_store()
+    return spending_forecast(store.transactions, settings.demo_today, store.get("macro_summary") or build_daily_macro_summary())
+
+
+def _get_seasonal_outlook() -> dict[str, Any]:
+    from nataware.insights.awareness import seasonal_awareness
+    from nataware.threats.macro import build_daily_macro_summary
+
+    store = get_store()
+    events = seasonal_awareness(store.transactions, settings.demo_today,
+                                store.get("macro_summary") or build_daily_macro_summary(), store.get("set_asides") or [])
+    return {"events": events}
+
+
+def _get_insights() -> dict[str, Any]:
+    from nataware.insights.noticed import noticed
+    from nataware.insights.recurring import detect_recurring
+
+    store = get_store()
+    profile = store.get_profile()
+    if profile is None:
+        return {"error": "No profile yet."}
+    recurring = detect_recurring(store.transactions, settings.demo_today)
+    return {"insights": noticed(store.transactions, settings.demo_today, profile, store.get("account") or {}, recurring)}
+
+
+def set_aside(event_id: str, weekly: float) -> dict[str, Any]:
+    from nataware.insights.awareness import load_events
+
+    if event_id not in {e["id"] for e in load_events()}:
+        raise ValueError(f"Unknown seasonal event {event_id!r}")
+    store = get_store()
+    entry = {"event_id": event_id, "weekly": round(float(weekly), 2), "created_at": datetime.now().isoformat(timespec="seconds")}
+    rest = [s for s in store.get("set_asides") or [] if s["event_id"] != event_id]
+    store.put("set_asides", [*rest, entry])
+    return {"set_aside": entry, "total_weekly": round(sum(s["weekly"] for s in [*rest, entry]), 2)}
+
+
+def _set_aside_for_event(event_id: str, weekly: float) -> dict[str, Any]:
+    return set_aside(event_id, weekly)
+
+
+def _update_goal(name: str, target: float, kind: str = "other", goal_id: str | None = None) -> dict[str, Any]:
+    from nataware.profile import Goal
+
+    store = get_store()
+    profile = store.get_profile()
+    if profile is None:
+        return {"error": "No profile yet."}
+    goals = list(profile.goals)
+    existing = next((g for g in goals if g.id == goal_id), None) if goal_id else None
+    if existing:
+        updated = existing.model_copy(update={"name": name, "target": float(target), "kind": kind or existing.kind})
+        goals = [updated if g.id == existing.id else g for g in goals]
+    else:
+        updated = Goal(name=name, target=float(target), kind=kind)
+        if any(g.id == updated.id for g in goals):
+            updated = updated.model_copy(update={"id": f"{updated.id}-{len(goals) + 1}"})
+        goals.append(updated)
+    store.set_profile(profile.model_copy(update={"goals": goals}))
+    return {"goal": updated.model_dump(), "goals": [g.model_dump() for g in goals]}
+
+
 _HANDLERS = {
     "search_transactions": _search_transactions,
     "highlight_transactions": _highlight_transactions,
@@ -252,4 +404,10 @@ _HANDLERS = {
     "get_coaching_plan": _get_coaching_plan,
     "log_transaction": _log_transaction,
     "get_recent_nudges": _get_recent_nudges,
+    "get_goals_and_strategies": _get_goals_and_strategies,
+    "get_spending_forecast": _get_spending_forecast,
+    "get_seasonal_outlook": _get_seasonal_outlook,
+    "get_insights": _get_insights,
+    "set_aside_for_event": _set_aside_for_event,
+    "update_goal": _update_goal,
 }

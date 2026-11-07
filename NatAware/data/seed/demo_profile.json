@@ -3,5 +3,9 @@
   "tendency": "The Comfort-Buyer",
   "optimal_baseline": {"needs": 55, "wants": 25, "savings": 20},
   "rationale": "Covers the essentials with little buffer, and reaches for delivery food and late-night shopping when tired or stressed.",
+  "goals": [
+    {"id": "house-deposit", "name": "House deposit", "kind": "house", "target": 15000, "saved": 2100},
+    {"id": "emergency-fund", "name": "Emergency fund", "kind": "emergency", "target": 3000, "saved": 450}
+  ],
   "assessed_at": "2026-10-17"
 }

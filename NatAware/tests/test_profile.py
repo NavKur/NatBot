@@ -33,3 +33,12 @@ def test_invalid_or_missing_profile_returns_none():
 def test_fenced_json_is_accepted():
     fenced = REPLY.replace("<profile>\n", "<profile>\n```json\n").replace("\n</profile>", "\n```\n</profile>")
     assert extract_profile(fenced) is not None
+
+
+def test_goals_are_parsed_and_tidied():
+    reply = REPLY.replace('"rationale": "Little buffer, stress-driven delivery orders."}',
+                          '"rationale": "x", "goals": [{"name": "House deposit", "kind": "house", "target": 15000},'
+                          ' {"name": "Rainy day", "kind": "weird", "target": 2000}]}')
+    p = extract_profile(reply)
+    assert [g.id for g in p.goals] == ["house-deposit", "rainy-day"]
+    assert p.goals[1].kind == "other"

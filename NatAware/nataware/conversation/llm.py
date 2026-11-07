@@ -68,6 +68,8 @@ class ClaudeConversation:
             }
             if self.tools:
                 kwargs["tools"] = self.tools
+            if settings.anthropic_effort:
+                kwargs["output_config"] = {"effort": settings.anthropic_effort}
 
             with self._client.messages.stream(**kwargs) as stream:
                 for delta in stream.text_stream:
@@ -78,7 +80,7 @@ class ClaudeConversation:
                 on_sentence(sentence)
 
             content = _to_param_blocks(final.content)
-            if content:
+            if any(b["type"] != "thinking" and b["type"] != "redacted_thinking" for b in content):
                 self.message_history.append({"role": "assistant", "content": content})
             text_parts.extend(b["text"] for b in content if b["type"] == "text")
 
@@ -119,7 +121,12 @@ def _to_param_blocks(blocks: list[Any]) -> list[dict[str, Any]]:
     """Convert SDK response blocks into plain request params for the next turn."""
     out: list[dict[str, Any]] = []
     for b in blocks:
-        if b.type == "text":
+        # Thinking blocks must be passed back unchanged (they carry a signature).
+        if b.type == "thinking":
+            out.append({"type": "thinking", "thinking": b.thinking, "signature": b.signature})
+        elif b.type == "redacted_thinking":
+            out.append({"type": "redacted_thinking", "data": b.data})
+        elif b.type == "text":
             if b.text.strip():  # the API rejects empty text blocks
                 out.append({"type": "text", "text": b.text})
         elif b.type == "tool_use":

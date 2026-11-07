@@ -29,6 +29,8 @@ class Settings:
     # --- Real services (Phase 1 voice loop + conversational coach) ---
     anthropic_api_key: str = field(default_factory=lambda: _env("ANTHROPIC_API_KEY", ""))
     anthropic_model: str = field(default_factory=lambda: _env("ANTHROPIC_MODEL", "claude-sonnet-5-5"))
+    # Reasoning effort for the conversation (low | medium | high). Lower = faster spoken replies.
+    anthropic_effort: str = field(default_factory=lambda: _env("ANTHROPIC_EFFORT", "medium"))
     openai_api_key: str = field(default_factory=lambda: _env("OPENAI_API_KEY", ""))
     whisper_model: str = field(default_factory=lambda: _env("WHISPER_MODEL", "whisper-1"))
     elevenlabs_api_key: str = field(default_factory=lambda: _env("ELEVENLABS_API_KEY", ""))

@@ -25,3 +25,11 @@ def transcribe(wav_path: Path) -> str:
     with open(wav_path, "rb") as audio:
         result = _get_client().audio.transcriptions.create(model=settings.whisper_model, file=audio)
     return (result.text or "").strip()
+
+
+def transcribe_bytes(data: bytes, filename: str) -> str:
+    """Transcribe audio uploaded by the browser (webm / ogg / mp4 / wav). The extension tells Whisper the format."""
+    result = _get_client().audio.transcriptions.create(
+        model=settings.whisper_model, file=(filename, data), language="en"
+    )
+    return (result.text or "").strip()

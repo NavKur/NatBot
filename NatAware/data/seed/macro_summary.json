@@ -10,7 +10,10 @@
       "starts": "2026-11-16",
       "base_monthly_impact": 38.0,
       "months": 1,
-      "affects": ["Utilities", "Takeaway & Delivery"],
+      "affects": [
+        "Utilities",
+        "Takeaway & Delivery"
+      ],
       "buffer": "heating"
     },
     {
@@ -22,7 +25,9 @@
       "starts": "2026-11-12",
       "base_monthly_impact": 22.0,
       "months": 1,
-      "affects": ["Transport"],
+      "affects": [
+        "Transport"
+      ],
       "buffer": "travel"
     }
   ],
@@ -36,8 +41,11 @@
       "starts": "2027-01-01",
       "base_monthly_impact": 72.0,
       "months": 3,
-      "affects": ["Utilities"],
-      "buffer": "energy bills"
+      "affects": [
+        "Utilities"
+      ],
+      "buffer": "energy bills",
+      "price_change_pct": 6.0
     },
     {
       "id": "econ-council-tax-apr",
@@ -48,8 +56,11 @@
       "starts": "2027-04-01",
       "base_monthly_impact": 70.0,
       "months": 5,
-      "affects": ["Council Tax"],
-      "buffer": "council tax"
+      "affects": [
+        "Council Tax"
+      ],
+      "buffer": "council tax",
+      "price_change_pct": 4.99
     },
     {
       "id": "econ-food-inflation",
@@ -60,8 +71,42 @@
       "starts": "2026-11-01",
       "base_monthly_impact": 18.0,
       "months": 1,
-      "affects": ["Groceries", "Takeaway & Delivery"],
-      "buffer": "groceries"
+      "affects": [
+        "Groceries",
+        "Takeaway & Delivery"
+      ],
+      "buffer": "groceries",
+      "price_change_pct": 3.8
+    }
+  ],
+  "local_notes": [
+    {
+      "id": "area-xmas-markets",
+      "kind": "local",
+      "headline": "Manchester Christmas Markets open 13 November",
+      "detail": "Weekend market trips added about £60 to last December's eating-out spend for people in your area.",
+      "affects": [
+        "Eating Out"
+      ]
+    },
+    {
+      "id": "area-early-offers",
+      "kind": "local",
+      "headline": "Retailers start Christmas offers mid-November",
+      "detail": "Buying gifts in the November offers rather than in December usually costs less.",
+      "affects": [
+        "Shopping - Online",
+        "Shopping - Clothing"
+      ]
+    },
+    {
+      "id": "area-gp-visits",
+      "kind": "health",
+      "headline": "Flu season: GP visits typically double December to February",
+      "detail": "Pharmacy spending on cold and flu remedies usually rises over winter.",
+      "affects": [
+        "Health & Pharmacy"
+      ]
     }
   ]
 }

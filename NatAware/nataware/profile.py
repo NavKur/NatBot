@@ -41,11 +41,34 @@ class OptimalBaseline(BaseModel):
         return self
 
 
+GOAL_KINDS = ("house", "emergency", "debt", "travel", "education", "car", "family", "wedding", "retirement", "other")
+
+
+class Goal(BaseModel):
+    """A savings goal NatBot inferred from the onboarding answers (or the user added later)."""
+
+    id: str = ""
+    name: str = Field(min_length=1, max_length=60)
+    kind: str = "other"
+    target: float = Field(gt=0, le=1_000_000)
+    # Amount already saved towards it. None = allocate from the savings pot balance.
+    saved: float | None = Field(default=None, ge=0)
+
+    @model_validator(mode="after")
+    def _tidy(self) -> "Goal":
+        if self.kind not in GOAL_KINDS:
+            self.kind = "other"
+        if not self.id:
+            self.id = re.sub(r"[^a-z0-9]+", "-", self.name.lower()).strip("-")[:40] or "goal"
+        return self
+
+
 class Profile(BaseModel):
     capacity: Capacity
     tendency: Tendency
     optimal_baseline: OptimalBaseline
     rationale: str = ""
+    goals: list[Goal] = Field(default_factory=list)
     assessed_at: str | None = None  # ISO date the onboarding interview finished
 
     @property

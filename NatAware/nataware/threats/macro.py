@@ -31,7 +31,13 @@ def build_daily_macro_summary(city: str | None = None) -> dict[str, Any]:
         "source": "synthetic-demo-data",
         "weather_alerts": fetch_weather_alerts(city),
         "economic_news": fetch_economic_news(city),
+        # Context for the seasonal "Awareness" cards (no direct cost, so not scored as threats).
+        "local_notes": fetch_local_notes(city),
     }
+
+
+def fetch_local_notes(city: str) -> list[dict[str, Any]]:
+    return _seed().get("local_notes", [])
 
 
 def _seed() -> dict[str, Any]:

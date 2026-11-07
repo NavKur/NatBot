@@ -31,6 +31,9 @@ class Store:
         with self._lock:
             if self.state_path and self.state_path.exists():
                 self.state = json.loads(self.state_path.read_text(encoding="utf-8"))
+                # Older runtime files may predate newer keys.
+                for key, value in self._seed_state().items():
+                    self.state.setdefault(key, value)
             else:
                 self.state = self._seed_state()
 
@@ -54,13 +57,21 @@ class Store:
         return json.loads((self.seed_dir / name).read_text(encoding="utf-8"))
 
     def _seed_state(self) -> dict[str, Any]:
+        account = self._read_seed("account.json")
+        account.pop("_note", None)
         return {
+            # The demo profile is pre-loaded so the CLI, tools and tests work out of the box,
+            # but the web app treats the user as new until they onboard (or skip).
+            "onboarded": False,
             "profile": self._read_seed("demo_profile.json"),
+            "account": account,
             "transactions": self._read_seed("transactions.json"),
             "macro_summary": None,
             "active_threats": [],
             "nudges": [],
             "highlights": [],
+            "set_asides": [],  # [{"event_id", "weekly", "created_at"}] from "Save £x/week" buttons
+            "narration": None,  # cached Claude-written insight text, keyed by a hash of the facts
         }
 
     # ------------------------------------------------------------------ profile

@@ -40,7 +40,8 @@ def test_flags_follow_comfort_buyer_profile():
 
 def test_summary_budget_threats_plan():
     summary = execute_tool("get_spending_summary", {"group_by": "month"})
-    assert [r["group"] for r in summary["rows"]] == ["2026-08", "2026-09", "2026-10", "2026-11"]
+    months = [r["group"] for r in summary["rows"]]
+    assert months[0] == "2025-09" and months[-1] == "2026-11" and len(months) == 15
 
     budget = execute_tool("get_budget_status", {})
     assert budget["month"] == "2026-10" and budget["income"] > 0
@@ -59,3 +60,26 @@ def test_log_transaction_fires_transaction_trigger_when_over_limit():
     assert result["transaction"]["is_flagged"]
     assert result["plan"]["over_limit"]
     assert result["nudge"]["trigger"] == "transaction"
+
+
+def test_time_travel_tools():
+    goals = execute_tool("get_goals_and_strategies", {})["goals"]
+    house = next(g for g in goals if g["kind"] == "house")
+    assert house["plan_months"] < house["current_path_months"]
+    assert {s["id"] for s in house["strategies"]} >= {"lisa", "habit-swap"}
+
+    forecast = execute_tool("get_spending_forecast", {})
+    december = next(p for p in forecast["forecast"] if p["month"] == "2026-12")
+    assert december["predicted"] > forecast["baseline_monthly"]  # Christmas, learned from last year
+
+    events = {e["id"]: e for e in execute_tool("get_seasonal_outlook", {})["events"]}
+    assert events["christmas"]["impact"] == "high" and events["christmas"]["weekly_save"] > 0
+
+    kinds = {i["kind"] for i in execute_tool("get_insights", {})["insights"]}
+    assert {"cash_flow", "bill_change"} <= kinds
+
+
+def test_set_aside_and_update_goal():
+    assert execute_tool("set_aside_for_event", {"event_id": "christmas", "weekly": 40})["total_weekly"] == 40
+    res = execute_tool("update_goal", {"name": "Driving lessons", "target": 1200, "kind": "car"})
+    assert any(g["name"] == "Driving lessons" for g in res["goals"])

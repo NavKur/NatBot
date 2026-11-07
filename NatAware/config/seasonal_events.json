@@ -1,0 +1,49 @@
+{
+  "description": "Seasonal money pressures NatBot watches for. Expected extra cost is computed from the user's own spending in the same window last year versus a normal month now, plus announced price changes in the Daily_Macro_Summary. Windows are MM-DD and may wrap the year end.",
+  "events": [
+    {
+      "id": "cold-flu",
+      "title": "Cold & flu season",
+      "icon": "pill",
+      "start": "11-01",
+      "end": "02-28",
+      "window_label": "Now to February",
+      "categories": ["Health & Pharmacy"],
+      "area_ids": ["area-gp-visits"],
+      "what": "remedies, prescriptions and pharmacy runs"
+    },
+    {
+      "id": "christmas",
+      "title": "Christmas",
+      "icon": "gift",
+      "start": "12-01",
+      "end": "12-24",
+      "window_label": "Peaks 1 to 24 December",
+      "categories": ["Shopping - Online", "Shopping - Clothing", "Eating Out", "Alcohol & Nightlife", "Travel", "Groceries", "Entertainment"],
+      "area_ids": ["area-xmas-markets", "area-early-offers", "econ-food-inflation"],
+      "what": "gifts, nights out, food and travel"
+    },
+    {
+      "id": "heating",
+      "title": "Heating bills",
+      "icon": "flame",
+      "start": "12-01",
+      "end": "02-28",
+      "window_label": "December to February",
+      "categories": ["Utilities"],
+      "area_ids": ["wx-cold-snap-nov", "econ-energy-cap-jan"],
+      "what": "gas and electricity"
+    },
+    {
+      "id": "winter-travel",
+      "title": "Winter travel disruption",
+      "icon": "cloud",
+      "start": "11-12",
+      "end": "02-28",
+      "window_label": "Storm season, November to February",
+      "categories": ["Transport"],
+      "area_ids": ["wx-storm-wind"],
+      "what": "taxis when trams and trains are disrupted"
+    }
+  ]
+}
