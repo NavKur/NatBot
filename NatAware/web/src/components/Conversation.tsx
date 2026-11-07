@@ -1,5 +1,5 @@
 import { Mic, MicOff, Send, Square } from 'lucide-react'
-import { useEffect, useRef, useState, type FormEvent } from 'react'
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import { unlockAudio } from '../voice/audio'
 import type { useNatBot } from '../voice/useNatBot'
 import { ToolCard } from './ToolCard'
@@ -19,9 +19,10 @@ interface Props {
   suggestions?: string[]
   placeholder?: string
   autoFocusInput?: boolean
+  intro?: ReactNode
 }
 
-export function Conversation({ bot, suggestions = [], placeholder = 'Type a message', autoFocusInput }: Props) {
+export function Conversation({ bot, suggestions = [], placeholder = 'Type a message', autoFocusInput, intro }: Props) {
   const [text, setText] = useState('')
   const [announce, setAnnounce] = useState('')
   const list = useRef<HTMLDivElement>(null)
@@ -55,6 +56,7 @@ export function Conversation({ bot, suggestions = [], placeholder = 'Type a mess
   return (
     <div className="convo">
       <div className="messages" ref={list} role="log" aria-label="Conversation with NatBot" aria-live="off">
+        {intro}
         {bot.messages.map((m) => (
           <div key={m.id} className={`msg ${m.role} ${m.error ? 'error' : ''}`}>
             {(m.text || m.pending) && (

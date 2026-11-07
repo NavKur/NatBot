@@ -223,7 +223,7 @@ function GoalBody({
                 <span>
                   <span className="strategy-title">{s.title}</span>
                   <span className="strategy-detail" style={{ display: 'block' }}>
-                    {prefs.plainEnglish ? s.plain ?? s.detail : s.detail}
+                    {s.plain ?? s.detail}
                   </span>
                   {!prefs.plainEnglish && <span className="strategy-evidence" style={{ display: 'block' }}>{s.evidence_text ?? s.evidence}</span>}
                 </span>
