@@ -1,0 +1,31 @@
+{
+  "archetype": "The Rainy-Day Soother",
+  "archetype_blurb": "Disciplined with big decisions, but buys comfort in small, fast, delivered doses when drained.",
+  "risk_tolerance": 38,
+  "impulse_control": 41,
+  "lifestyle_inflation": 57,
+  "stress_spending_risk": 78,
+  "emotional_triggers": [
+    "exhaustion after long work weeks",
+    "grey, dark weather",
+    "evenings alone",
+    "seeing friends travel"
+  ],
+  "vulnerable_categories": ["Food Delivery", "Shopping", "Self-care", "Taxis"],
+  "optimum_spending_profile": {
+    "needs_pct": 52,
+    "wants_pct": 28,
+    "savings_pct": 20,
+    "daily_discretionary_cap_gbp": 24,
+    "guardrails": [
+      "Delivery apps stay logged out Monday to Thursday. On tired nights, eat from a pre-stocked freezer shelf instead.",
+      "Any non-essential purchase after 9pm waits in the basket until morning.",
+      "When a friend posts a trip, move £15 into your 'my turn' travel pot instead of browsing flights."
+    ]
+  },
+  "evidence": [
+    "Felt most relieved when 'someone else just handled dinner' after a deadline.",
+    "Perfect grey Friday = 'blanket, takeaway, not talking to anyone'.",
+    "First thought on a friend's trip: 'I deserve that too, honestly.'"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "city": "Manchester",
+  "month_outlook": "A dark, wet, sniffly November is about to collide with your comfort-buying reflex. Watch 14-23 Nov.",
+  "overall_threat_level": 72,
+  "threats": [
+    {
+      "title": "The Ten-Day Downpour Takeaway Spiral",
+      "local_signal": "Yellow rain warning for 14-23 Nov, plus delivery apps waiving fees on rainy evenings.",
+      "psych_trigger": "When you're exhausted and the weather is grey, you buy comfort and have it delivered.",
+      "prediction": "Ten wet days take away the option of going out, and the fee waivers take away the friction. Expect 6-9 delivery orders in one week.",
+      "window": "14-23 Nov",
+      "probability": 84,
+      "estimated_cost_gbp": 175,
+      "severity": "high",
+      "category": "Food Delivery",
+      "countermeasure": "Batch-cook or buy 5 freezer meals this Sunday and label them 'storm week'. Log out of delivery apps on 13 Nov."
+    },
+    {
+      "title": "The Black Friday Low-Mood Basket",
+      "local_signal": "Low-mood referrals are up 30%, and Black Friday deals start on 13 Nov.",
+      "psych_trigger": "Low mood in the evening, plus lifestyle inflation ('I deserve that').",
+      "prediction": "In the low-daylight weeks, late-night browsing turns into 'treat yourself' buys like cosy clothes, skincare and gadgets, mostly after 9pm.",
+      "window": "13-30 Nov",
+      "probability": 71,
+      "estimated_cost_gbp": 220,
+      "severity": "high",
+      "category": "Shopping",
+      "countermeasure": "Set a 9pm limit on shopping apps, and buy a light-therapy lamp now (£35). It costs less than the low moods it prevents."
+    },
+    {
+      "title": "The Replacement-Bus Taxi Tax",
+      "local_signal": "Tram lines are part-closed 10-23 Nov and surge pricing is expected, all during an early flu wave.",
+      "psych_trigger": "You don't tolerate discomfort well when you're tired, so you pay to make the hassle go away.",
+      "prediction": "Rain and 40-minute bus detours push you into surge-priced taxis 2-3 times a week, especially on days you're ill or running late.",
+      "window": "10-23 Nov",
+      "probability": 63,
+      "estimated_cost_gbp": 95,
+      "severity": "medium",
+      "category": "Taxis",
+      "countermeasure": "Buy a weekly bus pass in advance and set a rule: only take a taxi if it saves you 2 hours or more. Stock up on cold remedies before the shortage."
+    }
+  ]
+}

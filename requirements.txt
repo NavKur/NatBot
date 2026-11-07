@@ -1,0 +1,7 @@
+streamlit>=1.40
+anthropic
+requests
+python-dotenv
+pandas
+plotly
+SpeechRecognition
